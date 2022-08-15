@@ -1,0 +1,118 @@
+===character===
+<b>Character</b>  # CLASS: w3-green
+Army <i>aggressive</i> against adjacent <i>target</i> and contains Witch King or maximum possible leadership? # CLASS: w3-yellow
++ [Yes] -> character_attack
++ [No] -> character_leadership
+
+===character_attack===
+<b>Attack</b># CLASS: w3-pink
+-> DONE
+
+===character_leadership===
+<i>Mobile</i> army with leadership and a valid move/attack towards nearest available <i>target</i>? # CLASS: w3-yellow
++ [Yes]
+-> character_army_4
++ [No]
+-> character_nazgul_in_play
+
+===character_army_4===
+(use character die) # IMAGE: ADSAcharacter.png
+-> army_4
+
+===character_2===
+<b>Character 2</b> # CLASS: w3-green
+-> character_nazgul_in_play
+
+===character_nazgul_in_play===
+Nazgul or Witch King in Play? # CLASS: w3-yellow
++ [Yes]
+-> character_attack
++ [No]
+-> character_event
+
+===character_witch_king===
+Witch King not in a <i>mobile</i> army and is able to join or create one? # CLASS: w3-blue
++ [Yes]
+-> witch_king_placement_priority
++ [No]
+-> character_nazgul
+
+===character_nazgul===
+Nazgul not in Fellowship region and are able to move there, <i>or</i> # CLASS: w3-blue
+Nazgul not in a <i>mobile</i> army and are able to join or create one? # CLASS: w3-blue
++ [Yes]
+-> nazgul_placement_priority
++ [No]
+-> character_mouth_sauron
+
+===character_mouth_sauron===
+Mouth of Sauron is not in a <i>mobile</i> army? # CLASS: w3-blue
++ [Yes]
+-> mouth_of_sauron_movement_priority
++ [No]
+-> character_die_used
+
+===character_die_used===
+Die has been used? # CLASS: w3-blue
++ [Yes] <b>End action</b># CLASS: w3-pink
+-> DONE
++ [No]
+-> character_event
+
+===character_event===
+(use character die) # IMAGE: ADSAcharacter.png
+-> event
+
+===muster_witch_king===
+<b>Muster Witch King</b>  # CLASS: w3-green
+-> witch_king_placement_priority
+
+===witch_king_placement_priority===
+<b>Witch King placement priority:</b> # CLASS: w3-purple
+1. Army is <i>mobile</i> # CLASS: w3-purple
+2. <i>Target</i> nation is at war # CLASS: w3-purple
+3. Army becomes <i>mobile</i> when Witch King added # CLASS: w3-purple
+4. Opposing army does not contain Gandalf the White # CLASS: w3-purple
+5. Opposing army does not contain hobbits # CLASS: w3-purple
+6. Adjacent to threat # CLASS: w3-purple
+7. Sieging # CLASS: w3-purple
+8. Adjacent to <i>target</i> # CLASS: w3-purple
+9. Highest value Shadow army # CLASS: w3-purple
+
+Move/Muster # CLASS: w3-orange
+
+Mustered Witch King # CLASS: w3-blue
+
++ [Yes] <b>End action</b># CLASS: w3-pink
+-> DONE
++ [No]
+-> character_nazgul
+
+===nazgul_placement_priority===
+<b>Nazgul placement priority:</b> # CLASS: w3-purple
+Gather all Nazgul prior to placement # CLASS: w3-purple
+1. One in region which contains the Fellowship # CLASS: w3-purple
+2. Leadership value less than number of army units and 5 # CLASS: w3-purple
+3. Contains Witch King # CLASS: w3-purple
+4. Shadow stronghold under seige # CLASS: w3-purple
+5. <i>Mobile</i> army # CLASS: w3-purple
+6. Adjacent to threat # CLASS: w3-purple
+7. <i>Target</i> nation is active # CLASS: w3-purple
+8. Army becomes <i>mobile</i> with Nazgul # CLASS: w3-purple
+9. Not seiging # CLASS: w3-purple
+8. Adjacent to <i>target</i> # CLASS: w3-purple
+9. Highest value Shadow army # CLASS: w3-purple
+
+<b>Move</b> # CLASS: w3-orange
+-> character_mouth_sauron
+
+===mouth_of_sauron_movement_priority===
+<b>Mouth of Sauron movement priority:</b> # CLASS: w3-purple
+1. Leadership value less than number of army units and 5 # CLASS: w3-purple
+2. <i>Mobile</i> army # CLASS: w3-purple
+3. Army adjacent to <i>target</i> # CLASS: w3-purple
+4. Can be reached on this die # CLASS: w3-purple
+5. Closest Army # CLASS: w3-purple
+
+<b>Move towards army</b> # CLASS: w3-orange
+-> character_die_used

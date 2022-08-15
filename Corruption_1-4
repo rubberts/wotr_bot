@@ -1,0 +1,74 @@
+===phase_1_corruption===
+<b>Phase 1</b> # CLASS: w3-green
+Recover action dice # CLASS: w3-orange
+Draw Event and Faction Event cards # CLASS: w3-orange
+More than 6 Event cards in hand? # CLASS: w3-yellow
++ [Yes] -> phase_1_corruption_discard
++ [No] -> phase_2_corruption
+TODO: Implement Warriors of Middle Earth
+
+===phase_1_corruption_discard===
+Holding more than 1 strategy card? # CLASS: w3-blue
++ [Yes] -> phase_1_corruption_discard_strategy
++ [No] -> phase_1_corruption_discard_character
+
+===phase_1_corruption_discard_strategy===
+Discard priority: # CLASS: w3-orange
+1. Doesn't use the term "Fellowship Revealed" # CLASS: w3-orange
+2. Doesn't place a tile # CLASS: w3-orange
+3. Strategy card # CLASS: w3-orange
+4. Character card # CLASS: w3-orange
+5. Descending order of priority # CLASS: w3-orange
+-> phase_2_corruption
+
+===phase_1_corruption_discard_character===
+Discard priority: # CLASS: w3-orange
+1. Doesn't use the term "Fellowship Revealed" # CLASS: w3-orange
+2. Doesn't place a tile # CLASS: w3-orange
+3. Character card # CLASS: w3-orange
+4. Strategy card # CLASS: w3-orange
+5. Descending order of priority # CLASS: w3-orange
+-> phase_2_corruption
+
+===phase_2_corruption===
+<b>Phase 2</b> # CLASS: w3-green
+Corruption points lower than Shadow Victory points? # CLASS: w3-yellow
++ [Yes] -> phase_3_military
++ [No] -> phase_3_corruption
+
+===phase_3_corruption===
+<b>Phase 3</b> # CLASS: w3-green
+Select first Fellowship state, starting from top: # CLASS: w3-yellow
++ Fellowship at starting location and progress is 0 -> phase_3_corruption_random # CLASS: w3-yellow
++ Fellowship on the Mordor track -> phase_3_corruption_max # CLASS: w3-yellow
++ <i>Mobile</i> army adjacent to <i>target</i> which would win the game or Shadow only has 7 dice -> phase_3_corruption_1 # CLASS: w3-yellow
++ Fellowship progress is greater than 4 -> phase_3_corruption_2 # CLASS: w3-yellow
++ Shortest Fellowship route leads via a Shadow stronghold and they are within two progress of it or have passed it -> phase_3_corruption_2 # CLASS: w3-yellow
++ None of the above -> phase_3_corruption_1 # CLASS: w3-yellow
+
+===phase_3_corruption_random===
+{ RANDOM(1, 2):
+- 1: -> phase_3_corruption_0
+- 2: -> phase_3_corruption_1
+}
+
+===phase_3_corruption_max===
+Assign maximum dice allowed to the hunt pool # CLASS: w3-orange
+-> phase_4_corruption
+
+===phase_3_corruption_0===
+Assign 0 dice to the hunt pool # CLASS: w3-orange
+-> phase_4_corruption
+
+===phase_3_corruption_1===
+Assign 1 die to the hunt pool # CLASS: w3-orange
+-> phase_4_corruption
+
+===phase_3_corruption_2===
+Assign 2 dice to the hunt pool # CLASS: w3-orange
+-> phase_4_corruption
+
+===phase_4_corruption===
+<b>Phase 4</b> # CLASS: w3-green
+Roll remaining action dice # CLASS: w3-orange
+-> phase_5_corruption

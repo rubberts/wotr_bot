@@ -1,0 +1,92 @@
+===military_witch_king_in_play===
+<b>Witch King is in play and not in a <i>mobile</i> army</b>? # CLASS: w3-yellow
+~ return_knot = -> conditions_to_muster
++ [Yes] -> character_2
++ [No] -> conditions_to_muster
+
+===conditions_to_muster===
+<b>Conditions to muster a minion met</b> or # CLASS: w3-yellow
+Southrons & Easterlings not at war or # CLASS: w3-yellow
+no faction recruited? # CLASS: w3-yellow
+~ return_knot = -> character_cards_over_zero_military
++ [Yes] -> muster_2
++ [No] -> character_cards_over_zero_military
+
+===character_cards_over_zero_military===
+<b>Character cards > 0 and Fellowship on Mordor track or revealed</b>? # CLASS: w3-yellow
++ [Yes] -> holding_fellowship_revealed
++ [No] -> mobile_army_adjacent_military
+
+===holding_fellowship_revealed===
+Holding a Fellowship revealed character card? # CLASS: w3-blue
++ [Yes] -> play_card_character_die
++ [No] -> mobile_army_adjacent_military
+
+===play_card_character_die===
+Play card using character die # CLASS: w3-pink
+
+if no character die then use event die  # CLASS: w3-pink
+
+-> mobile_army_adjacent_military
+
+===mobile_army_adjacent_military===
+<b><i>Mobile</i> army adjacent to <i>target</i> or an army which is blocking the route to <i>target<i></b>? # CLASS: w3-yellow
++ [Yes] -> any_condition_true
++ [No] -> playable_muster_strategy
+
+===any_condition_true===
+<b>ANY condition true:</b> # CLASS: w3-blue
+<i>Target</i> provides enough victory points to win # CLASS: w3-blue
+<i>Target</i> is in a nation at war and not under siege # CLASS: w3-blue
+Fellowship is in Mordor? # CLASS: w3-blue
+~ return_knot = -> army_4_sequence
++ [Yes] (character die) -> army_4
++ [No] -> playable_muster_strategy
+
+===army_4_sequence===
+~ return_knot = -> playable_muster_strategy
+-> army_4
+
+===playable_muster_strategy===
+<b>Playable muster strategy cards > 0</b>? # CLASS: w3-yellow
+~ return_knot = -> pass
++ [Yes] -> muster_3
++ [No] -> pass
+
+===pass===
+Pass # CLASS: w3-pink
+TODO: Implement Warrior of Middle Earth
+~ return_knot = -> mobile_army_adjacent_target_military
+-> event
+
+===mobile_army_adjacent_target_military===
+<i>Mobile</i> army adjacent to <i>target</i> # CLASS: w3-yellow
+~ return_knot = -> army_4_sequence_military
++ [Yes] (character die) -> army_4
+~ return_knot = -> character_sequence_military
++ [No] -> army_3
+
+===army_4_sequence_military===
+~ return_knot = -> army_3_sequence_military
+-> army_4
+
+===army_3_sequence_military===
+~ return_knot = -> character_sequence_military
+-> army_3
+
+===character_sequence_military===
+~ return_knot = -> muster_sequence_military
+-> character
+
+TODO: Implement Warrior of Middle Earth
+
+===muster_sequence_military===
+~ return_knot = -> discard_unplayable_die
+-> muster
+TODO: Implement Warrior of Middle Earth
+
+===discard_unplayable_die===
+Discard unplayable die # CLASS: w3-pink
+
+Use Muster die set aside for minion # CLASS: w3-pink
+-> DONE

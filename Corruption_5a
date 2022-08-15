@@ -1,0 +1,59 @@
+===phase_5_corruption===
+<b>Phase 5</b> # CLASS: w3-green
+This symbol indicates a ring should be used where the condition is met and the required die in unavailable # CLASS: w3-green # IMAGE: elvenring3.png
+-> shadow_under_threat
+
+===shadow_under_threat===
+<b>Shadow under <i>threat</i> or Free People <i>exposed</i></b>? # CLASS: w3-yellow # IMAGE: elvenring3.png
++ [Yes] -> mobile_army_adjacent
++ [No] -> character_cards_over_zero
+
+===mobile_army_adjacent===
+<i>Mobile</i> army adjacent to <i>threat</i>? # CLASS: w3-blue
++ [Yes] -> attack_character_die
++ [No] -> move_create_mobile_army
+
+===attack_character_die===
+Attack using character die # CLASS: w3-pink  # IMAGE: ADSAcharacter.png
+-> attack_army_die
+
+===attack_army_die===
+Attack using army die # CLASS: w3-pink  # IMAGE: ADSAarmy.png
+-> move_create_mobile_army
+
+===move_create_mobile_army===
+Move can create <i>mobile</i> army adjacent to <i>threat</i>? # CLASS: w3-blue
++ [Yes] -> move_character_die
++ [No] -> move_increase_troops
+
+===move_increase_troops===
+Move can increase troop numbers in the Stronghold under <i>threat</i>? # CLASS: w3-blue
++ [Yes] -> move_character_die
++ [No] -> mobile_army_route
+
+===mobile_army_route===
+<i>Mobile</i> army's route to closest <i>target</i> takes it towards <i>threat</i>? # CLASS: w3-blue
++ [Yes] -> move_character_die
++ [No] -> move_towards_exposed
+
+===move_character_die===
+Move using character die # CLASS: w3-pink # IMAGE: ADSAcharacter.png
+~ return_knot = -> stronghold_under_threat
+-> army
+
+===move_towards_exposed===
+Can move towards <i>exposed</i>? # CLASS: w3-blue
++ [Yes] -> move_character_die
++ [No] -> stronghold_under_threat
+
+===stronghold_under_threat===
+Stronghold under <i>threat</i> is valid for muster? # CLASS: w3-blue
+~ return_knot = -> threat_sieging
++ [Yes] -> muster
++ [No] -> threat_sieging
+
+===threat_sieging===
+<i>Threat</i> is sieging a Shadow stronghold which can use more leadership? # CLASS: w3-blue
+~ return_knot = -> character_cards_over_zero
++ [Yes] -> character_2
++ [No] -> character_cards_over_zero

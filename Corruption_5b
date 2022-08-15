@@ -1,0 +1,97 @@
+===character_cards_over_zero===
+<b>Character cards greater than zero and Fellowship on Mordor track or revealed</b>? # CLASS: w3-yellow # IMAGE: elvenring3.png
++ [Yes] (use character die for event) # IMAGE: ADSAcharacter.png
+
+~ return_knot = -> event_2_sequence
+-> event_2
++ [No] -> fellowship_region_of_nazgul
+
+===event_2_sequence===
+~ return_knot = -> fellowship_region_of_nazgul
+-> event_2
+
+===fellowship_region_of_nazgul===
+Fellowship in region which Nazgul can move to and contains no Nazgul? # CLASS: w3-yellow
+~ return_knot = -> witch_king_in_play_not_mobile
++ [Yes] -> character_2
++ [No] -> witch_king_in_play_not_mobile
+
+===witch_king_in_play_not_mobile===
+<b>Witch King is in play and not in a <i>mobile</i> army</b>? # CLASS: w3-yellow # IMAGE: elvenring3.png
+~ return_knot = -> corruption_muster_minion
++ [Yes] -> character_2
++ [No] -> corruption_muster_minion
+
+===corruption_muster_minion===
+<b>Conditions to muster a minion met</b> or # CLASS: w3-yellow # IMAGE: elvenring3.png
+Southrons & Easterlings not at war or # CLASS: w3-yellow
+no faction recruited? # CLASS: w3-yellow
+~ return_knot = -> mobile_army_adjacent_target
++ [Yes] -> muster_2
++ [No] -> mobile_army_adjacent_target
+
+===mobile_army_adjacent_target===
+<i>Mobile</i> army adjacent to <i>target</i>? # CLASS: w3-yellow
++ [Yes] -> fellowship_on_mordor_track
++ [No] -> playable_character_cards
+
+===fellowship_on_mordor_track===
+<b>Fellowship on Mordor track or <i>target</i> would win the game</b> or # CLASS: w3-blue # IMAGE: elvenring3.png
+<i>target</i> not under siege and in a nation at War? # CLASS: w3-blue
+~ return_knot = -> mobile_army_adjacent_target
++ [Yes] -> character
++ [No] -> playable_character_cards
+
+===playable_character_cards===
+Pass # CLASS: w3-pink
+Playable character cards available? # CLASS: w3-yellow
+~ return_knot = -> event_next
++ [Yes] (use character die) -> event
++ [No] -> mobile_army_adjacent_target_siege
+
+===event_next===
+~ return_knot = -> mobile_army_adjacent_target_siege
+-> event
+
+===mobile_army_adjacent_target_siege===
+<i>Mobile</i> army adjacent to <i>target</i> not under siege? # CLASS: w3-yellow
+~ return_knot = -> army_2_next
++ [Yes] -> character
+TODO: Implement Warrior of Middle Earth
++ [No] -> event_sequence
+
+===army_2_next===
+~ return_knot = -> event_sequence
+-> army_2
+
+===event_sequence===
+~ return_knot = -> army_3_sequence
+-> event
+
+===army_3_sequence===
+~ return_knot = -> character_sequence
+-> army_3
+
+===character_sequence===
+~ return_knot = -> muster_sequence
+-> character
+
+TODO: Implement Warrior of Middle Earth
+
+===muster_sequence===
+~ return_knot = -> phase_5_sequence
+-> muster
+
+TODO: Implement Warrior of Middle Earth
+
+===phase_5_sequence===
+~ return_knot = -> discard_unplayable
+<b>Phase 5</b> # CLASS: w3-green
+(use ring for any condition possible) # CLASS: w3-green # IMAGE: elvenring3.png
+-> shadow_under_threat
+
+===discard_unplayable===
+Discard unplayable dice # CLASS: w3-pink
+Use Muster die set aside for minion # CLASS: w3-pink
+-> DONE
+

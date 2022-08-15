@@ -1,0 +1,77 @@
+===event===
+<b>Event</b>  # CLASS: w3-green
+Holding a playable <i>preferred</i> card? # CLASS: w3-yellow
++ [Yes] -> event_priority_1
++ [No] -> event_using_event_die
+
+===event_using_event_die===
+Using an Event die? # CLASS: w3-yellow
++ [Yes] -> event_holding_event_cards
++ [No] -> return_knot
+
+===event_holding_event_cards===
+Holding less than 4 Event cards - excluding Faction Event cards? # CLASS: w3-blue
++ [Yes] Draw a <i>preferred</i> Event card # CLASS: w3-pink
+-> DONE
+ TODO: implement Warriors of Middle Earth
++ [No] -> event_holding_playable_event
+
+===event_holding_playable_event===
+Holding a playable Event or Faction Event card? # CLASS: w3-blue
++ [Yes] -> event_priority_1
++ [No] -> event_draw_event_card
+
+===event_draw_event_card===
+Draw a <i>preferred</i> Event card # CLASS: w3-orange
+
+Above <i>full hand</i>? # CLASS: w3-blue
++ [Yes] -> event_priority_3
++ [No] End action -> DONE # CLASS: w3-pink
+
+===event_priority_1===
+<b>Priority:</b> # CLASS: w3-purple
+1. <i>Full hand</i> # CLASS: w3-purple
+2. <i>Preferred</i> Event card # CLASS: w3-purple
+3. <i>Preferred</i> Faction Event card # CLASS: w3-purple
+4. Ascending order of initiative # CLASS: w3-purple
+
+Play Event/Faction Event card # CLASS: w3-pink
+-> DONE
+
+===event_priority_2===
+<b>Priority:</b> # CLASS: w3-purple
+1. <i>Full hand</i> # CLASS: w3-purple
+2. Event card # CLASS: w3-purple
+3. Faction Event card # CLASS: w3-purple
+4. Ascending order of initiative # CLASS: w3-purple
+
+Play Event/Faction Event card # CLASS: w3-pink
+-> DONE
+
+===event_priority_3===
+<b>Priority:</b> # CLASS: w3-purple
+1. Not <i>preferred card</i> # CLASS: w3-purple
+2. Doesn't use the term "Fellowship revealed" # CLASS: w3-purple
+3. Doesn't place a tile # CLASS: w3-purple
+4. Descending order of initiative # CLASS: w3-purple
+
+Discard -> DONE # CLASS: w3-pink
+
+===event_card_discard===
+<b>Event card discard</b>  -> event_priority_3 # CLASS: w3-green
+
+===event_2===
+<b>Event 2</b>  # CLASS: w3-green
+Holding an "if Fellowship revealed" card? # CLASS: w3-yellow
++ [Yes] Play Event/Faction Event card -> DONE # CLASS: w3-pink
++ [No] -> event_2_corruption
+
+===event_2_corruption===
+Holding a card which can add corruption to the Fellowship or adds a Hunt tile? # CLASS: w3-yellow
++ [Yes] Play Event/Faction Event card -> DONE # CLASS: w3-pink
++ [No] -> event_2_few_cards
+
+===event_2_few_cards===
+Holding less than 4 Event cards - excluding Faction Event cards? # CLASS: w3-yellow
++ [Yes] Draw a character Event card -> DONE # CLASS: w3-pink
++ [No] -> return_knot

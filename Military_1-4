@@ -1,0 +1,52 @@
+===phase_1_military===
+<b>Phase 1</b> # CLASS: w3-green
+Recover action dice # CLASS: w3-orange
+Draw Event and Faction Event cards # CLASS: w3-orange
+More than 6 Event cards in hand? # CLASS: w3-yellow
++ [Yes] -> phase_1_military_discard
++ [No] -> phase_2_military 
+TODO: Implement Warriors of Middle Earth
+
+===phase_1_military_discard===
+Discard priority: # CLASS: w3-yellow
+1. Dont use the term "Fellowship Revealed" # CLASS: w3-yellow
+2. Character card # CLASS: w3-yellow
+3. Strategy card # CLASS: w3-yellow
+4. Descending order of priority # CLASS: w3-yellow
+5. Doesn't place a tile # CLASS: w3-yellow
+-> phase_2_military
+
+===phase_2_military===
+<b>Phase 2</b> # CLASS: w3-green
+Shadow victory points lower than Corruption points? # CLASS: w3-yellow
++ [Yes] -> phase_3_corruption
++ [No] -> phase_3_military
+
+===phase_3_military===
+<b>Phase 3</b> # CLASS: w3-green
+Select first Fellowship state, starting from top: # CLASS: w3-yellow
++ Fellowship on the Mordor track -> phase_3_military_max # CLASS: w3-yellow
++ Fellowship progress is greater than 5 -> phase_3_military_2 # CLASS: w3-yellow
++ Fellowship in starting location and progress is 0 -> phase_3_military_0 # CLASS: w3-yellow
++ None of the above -> phase_3_military_1 # CLASS: w3-yellow
+
+===phase_3_military_max===
+Assign maximum dice allowed to the hunt pool # CLASS: w3-orange
+-> phase_4_military
+
+===phase_3_military_0===
+Assign 0 dice to the hunt pool # CLASS: w3-orange
+-> phase_4_military
+
+===phase_3_military_1===
+Assign 1 die to the hunt pool # CLASS: w3-orange
+-> phase_4_military
+
+===phase_3_military_2===
+Assign 2 dice to the hunt pool # CLASS: w3-orange
+-> phase_4_military
+
+===phase_4_military===
+<b>Phase 4</b> # CLASS: w3-green
+Roll remaining action dice # CLASS: w3-orange
+-> phase_5_military

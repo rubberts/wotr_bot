@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+                    <html lang="en">
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Threat</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+               <p>The first thing the bot always does when choosing what die to use is check for threat. It finds itself
+starting a new turn with the game state displayed above.
+The first thing to do is to identify all Shadow strongholds with Free Peoples’ armies within two regions.
+From top to bottom:
+• Mount Gundabad – the North in Carrock
+• Moria – the Elves in Dimrill Dale
+• Dol Guldur – the Elves in Dimrill Dale
+• Orthanc – Rohan in the Fords of Isen and Helm’s Deep
+• Umbar – Gondor in Pelargir and Osgiliath
+Next, we ignore all Free Peoples’ nations which are not active, meaning Mount Gundabad and Orthanc
+are safe.
+Then we discount all armies currently located on a target. This means Umbar is safe from Pelargir, but
+not Osgiliath.
+Finally, we calculate the defender values remembering to include the stronghold bonus where
+appropriate:
+• Moria – 6
+• Dol Guldur – 0
+• Umbar – 9
+Now we calculate the value of the armies within range, and we exclude defensive bonuses since we’re
+considering them as attackers:
+• Dimrill Dale – 9
+• Osgiliath – 4
+Umbar is safe, but there is a threat to Moira and Dol Guldur from the Dimrill Dale and the bot would
+follow the threat part of its phase 5 flowchart.
+This may seem like a lot of work, but no stronghold starts the game under threat, so it will become
+obvious when the situation changes. The only time you may need to perform a full board check is
+when the Witch King enters play and multiple nations become active at once</p>
+</body>
+
+</html>

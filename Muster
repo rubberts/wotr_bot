@@ -1,0 +1,142 @@
+===muster===
+<b>Muster</b>  # CLASS: w3-green
+-> muster_stronghold_under_threat
+
+===muster_2===
+<b>Muster 2</b>  # CLASS: w3-green
+-> muster_recruit_minion
+
+===muster_3===
+<b>Muster 3</b>  # CLASS: w3-green
+-> muster_playable_muster_card
+
+===muster_event_card===
+<b>Muster Event card</b>  # CLASS: w3-green
+-> muster_playable_muster_card
+
+===muster_mouth_of_sauron===
+<b>Muster Mouth of Sauron</b>  # CLASS: w3-green
+-> muster_shadow_region
+
+===muster_stronghold_under_threat===
+A stronghold is under <i>threat</i> and is able to muster? # CLASS: w3-yellow
++ [Yes] -> muster_elite_regular
++ [No] -> muster_recruit_minion
+
+===muster_recruit_minion===
+Able to recruit a minion? # CLASS: w3-yellow
++ [Yes] -> muster_will_of_the_west
++ [No] -> muster_nation_not_at_war
+
+===muster_will_of_the_west===
+Free People have a Will of the West die and Gandalf the White has not been recruited and no minions have been recruited? # CLASS: w3-blue
++ [Yes] (Save muster for use as last die) # IMAGE: ADSAmuster.png
+-> return_knot
++ [No]
+-> muster_recruit_minion_priority
+
+===muster_recruit_minion_priority===
+<b>Priority:</b> # CLASS: w3-purple
+1. Saruman # CLASS: w3-purple
+2. Witch King # CLASS: w3-purple
+3. Mouth of Sauron # CLASS: w3-purple
+
+Muster # CLASS: w3-pink
+-> DONE
+
+===muster_nation_not_at_war===
+A Shadow nation is not at war or no faction is in play? # CLASS: w3-yellow
++ [Yes] -> muster_political_track_priority
++ [No] -> muster_playable_muster_card
+
+===muster_political_track_priority===
+<b>Priority:</b> # CLASS: w3-purple
+1. Isengard # CLASS: w3-purple
+2. Faction # CLASS: w3-purple
+3. Sauron # CLASS: w3-purple
+4. Southrons and Easterlings # CLASS: w3-purple
+
+TODO: Implement Warriors of Middle Earth
+Move nation down one on political track # CLASS: w3-pink
+-> DONE
+
+===muster_playable_muster_card===
+Holding a playable muster card? # CLASS: w3-yellow
++ [Yes] -> muster_choice_location
++ [No] -> muster_shadow_muster
+
+===muster_choice_location==
+Card allows choice of muster location? # CLASS: w3-blue
++ [Yes] -> muster_exposed_target
++ [No] Muster -> DONE
+
+===muster_exposed_target===
+Able to create an <i>exposed</i> target? # CLASS: w3-blue
++ [Yes] -> muster_elite_regular
++ [No] -> fellowship_adjacent
+
+===fellowship_adjacent===
+Fellowship adjacent to Shadow settlement and progress puts it outside Mordor and no army is in or adjacent to its region? # CLASS: w3-blue
++ [Yes]
+-> muster_regular_nazgul
++ [No] Muster # CLASS: w3-pink
+-> DONE
+
+===muster_shadow_region===
+Muster possible in region containing a Shadow army? # CLASS: w3-blue
++ [Yes] -> muster_shadow_region_priority
++ [No] -> muster_settlement_priority
+
+===muster_shadow_region_priority===
+<b>Priority:</b> # CLASS: w3-purple
+1. Conducting a siege # CLASS: w3-purple
+2. <i>Mobile</i> army # CLASS: w3-purple
+3. Would become <i>mobile</i> # CLASS: w3-purple
+4. Contains Saruman # CLASS: w3-purple
+5. Highest <i>value</i> # CLASS: w3-purple
+
+-> muster_elite_regular
+
+===muster_settlement_priority===
+<b>Settlement closest to:</b> # CLASS: w3-purple
+1. <i>Target</i> in nation at war # CLASS: w3-purple
+2. <i>Target</i> in active nation # CLASS: w3-purple
+3. <i>Mobile</i> army # CLASS: w3-purple
+4. <i>Target</i> in passive nation # CLASS: w3-purple
+
+Less than six Nazgul in play? # CLASS: w3-blue
++ [Yes] -> muster_nazgul_nazgul
++ [No] -> muster_elite_nazgul
+
+===muster_shadow_muster===
+Shadow is able to muster? # CLASS: w3-yellow
++ [Yes] -> muster_exposed_target
++ [No] -> return_knot
+
+===muster_elite_regular===
+<i>Primary</i> - Elite # CLASS: w3-purple
+<i>Secondary</i> - Regular # CLASS: w3-purple
+
+Muster # CLASS: w3-pink
+-> DONE
+
+===muster_elite_nazgul===
+<i>Primary</i> - Elite # CLASS: w3-purple
+<i>Secondary</i> - Nazgul # CLASS: w3-purple
+
+Muster # CLASS: w3-pink
+-> DONE
+
+===muster_nazgul_nazgul===
+<i>Primary</i> - Nazgul # CLASS: w3-purple
+<i>Secondary</i> - Nazgul # CLASS: w3-purple
+
+Muster # CLASS: w3-pink
+-> DONE
+
+===muster_regular_nazgul===
+<i>Primary</i> - Nazgul # CLASS: w3-purple
+<i>Secondary</i> - Nazgul # CLASS: w3-purple
+
+Muster # CLASS: w3-pink
+-> DONE
