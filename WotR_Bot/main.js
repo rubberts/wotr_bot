@@ -172,7 +172,7 @@
             delay += 200.0;
 
             // Click on choice
-            var choiceAnchorEl = choiceParagraphElement.querySelectorAll("a")[0];
+            var choiceAnchorEl = choiceParagraphElement.querySelectorAll("a")[0].parentElement;
             choiceAnchorEl.addEventListener("click", function(event) {
 
                 // Don't follow <a> link
