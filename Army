@@ -22,32 +22,27 @@ Threat exists? # CLASS: w3-yellow
 
 ===army_threat===
 <i>Mobile</i> army adjacent to <i>threat</i>? # CLASS: w3-blue
-+ [Yes] Attack # CLASS: w3-pink
--> DONE
++ [Yes] -> attack
 + [No] -> army_form_mobile
 
 ===army_form_mobile===
 Possible to form a <i>mobile</i> army adjacent to <i>threat</i>? # CLASS: w3-blue
-+ [Yes] Move # CLASS: w3-pink
--> DONE
++ [Yes] -> move
 + [No] -> army_move_increase_value
 
 ===army_move_increase_value===
 Possible to move an army to increase <i>value</i> at <i>threatened</i> stronghold? # CLASS: w3-blue
-+ [Yes] Move # CLASS: w3-pink
--> DONE
++ [Yes] -> move
 + [No] -> army_closest_target
 
 ===army_closest_target===
 <i>Mobile</i> army's closest <i>target</i> takes it towards cause of <i>threat</i>? # CLASS: w3-blue
-+ [Yes] Move # CLASS: w3-pink
--> DONE
++ [Yes] -> move
 + [No] -> army_exposed_target
 
 ===army_exposed_target===
 <i>Exposed target</i> exists? # CLASS: w3-yellow
-+ [Yes] Move nearest army towards <i>exposed</i> # CLASS: w3-pink
--> DONE
++ [Yes] -> move_nearest_army_towards_exposed
 + [No] -> army_adjacent_target
 
 ===army_adjacent_target===
@@ -62,9 +57,7 @@ Possible to move an army to increase <i>value</i> at <i>threatened</i> stronghol
 2. Attack would not move nation to war # CLASS: w3-purple
 3. <i>Target</i> in active nation # CLASS: w3-purple
 4. Highest <i>value</i> Shadow army # CLASS: w3-purple
-
-Attack # CLASS: w3-pink
--> DONE
+-> attack
 
 ===army_fellowship_region===
 Army can move into Fellowship region without increasing distance to <i>target</i>? # CLASS: w3-yellow
@@ -73,8 +66,7 @@ Army can move into Fellowship region without increasing distance to <i>target</i
 
 ===army_dice_hunt_pool===
 Dice in hunt pool and Fellowship progress puts it outside Mordor and no army in region? # CLASS: w3-blue
-+ [Yes] Move army into region # CLASS: w3-pink
--> DONE
++ [Yes] -> move_army_into_region
 + [No] -> army_empty_settlement
 
 ===army_empty_settlement===
@@ -84,10 +76,8 @@ Army can move onto an empty settlement of a nation at war? # CLASS: w3-yellow
 
 ===army_increase_distance===
 Increases distance to target? # CLASS: w3-blue
-+ [Yes] Move 1 unit into region # CLASS: w3-pink
--> DONE
-+ [No] Move army into region # CLASS: w3-pink
--> DONE
++ [Yes] -> move_unit_into_region
++ [No] -> move_army_into_region
 
 ===army_two_armies===
 Two Shadow armies able to merge at least one is not <i>mobile</i>? # CLASS: w3-yellow
@@ -106,9 +96,7 @@ Would increase number of <i>mobile</i> armies or make one of higher <i>value</i>
 3. Moves furthest army from closest <i>target</i> # CLASS: w3-purple
 4. Least left-over units # CLASS: w3-purple
 5. Destination contains stronghold # CLASS: w3-purple
-
-Move # CLASS: w3-pink
--> DONE
+-> move
 
 ===army_mobile_move_attack===
 <i>Mobile</i> army can move or attack towards closest <i>target</i>? # CLASS: w3-yellow
@@ -125,9 +113,7 @@ Move # CLASS: w3-pink
 6. Highest <i>value</i> Shadow army # CLASS: w3-purple
 7. Doesn't block another <i>mobile</i> army's shortest route to their closest <i>target</i> # CLASS: w3-purple
 8. Region contains Fellowship # CLASS: w3-purple
-
-Move/Attack # CLASS: w3-pink
--> DONE
+-> move_attack
 
 ===army_on_board===
 Have an army on the board? # CLASS: w3-yellow
@@ -142,6 +128,4 @@ Have an army on the board? # CLASS: w3-yellow
 4. Movement ends adjacent to another Shadow army # CLASS: w3-purple
 5. Decrease distance to closest <i>target</i> # CLASS: w3-purple
 6. Highest <i>value</i> Shadow army # CLASS: w3-purple
-
-Move # CLASS: w3-pink
--> DONE
+-> move

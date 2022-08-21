@@ -1,19 +1,13 @@
 ===character===
 <b>Character</b>  # CLASS: w3-green
 Army <i>aggressive</i> against adjacent <i>target</i> and contains Witch King or maximum possible leadership? # CLASS: w3-yellow
-+ [Yes] -> character_attack
++ [Yes] -> attack
 + [No] -> character_leadership
-
-===character_attack===
-<b>Attack</b># CLASS: w3-pink
--> DONE
 
 ===character_leadership===
 <i>Mobile</i> army with leadership and a valid move/attack towards nearest available <i>target</i>? # CLASS: w3-yellow
-+ [Yes]
--> character_army_4
-+ [No]
--> character_nazgul_in_play
++ [Yes] -> character_army_4
++ [No] -> character_nazgul_in_play
 
 ===character_army_4===
 (use character die) # IMAGE: ADSAcharacter.png
@@ -25,39 +19,29 @@ Army <i>aggressive</i> against adjacent <i>target</i> and contains Witch King or
 
 ===character_nazgul_in_play===
 Nazgul or Witch King in Play? # CLASS: w3-yellow
-+ [Yes]
--> character_attack
-+ [No]
--> character_event
++ [Yes] -> character_witch_king
++ [No] -> character_event
 
 ===character_witch_king===
 Witch King not in a <i>mobile</i> army and is able to join or create one? # CLASS: w3-blue
-+ [Yes]
--> witch_king_placement_priority
-+ [No]
--> character_nazgul
++ [Yes] -> witch_king_placement_priority
++ [No] -> character_nazgul
 
 ===character_nazgul===
 Nazgul not in Fellowship region and are able to move there, <i>or</i> # CLASS: w3-blue
 Nazgul not in a <i>mobile</i> army and are able to join or create one? # CLASS: w3-blue
-+ [Yes]
--> nazgul_placement_priority
-+ [No]
--> character_mouth_sauron
++ [Yes] -> nazgul_placement_priority
++ [No] -> character_mouth_sauron
 
 ===character_mouth_sauron===
 Mouth of Sauron is not in a <i>mobile</i> army? # CLASS: w3-blue
-+ [Yes]
--> mouth_of_sauron_movement_priority
-+ [No]
--> character_die_used
++ [Yes] -> mouth_of_sauron_movement_priority
++ [No] -> character_die_used
 
 ===character_die_used===
 Die has been used? # CLASS: w3-blue
-+ [Yes] <b>End action</b># CLASS: w3-pink
--> DONE
-+ [No]
--> character_event
++ [Yes] -> end_action
++ [No] -> character_event
 
 ===character_event===
 (use character die) # IMAGE: ADSAcharacter.png
@@ -83,10 +67,8 @@ Move/Muster # CLASS: w3-orange
 
 Mustered Witch King # CLASS: w3-blue
 
-+ [Yes] <b>End action</b># CLASS: w3-pink
--> DONE
-+ [No]
--> character_nazgul
++ [Yes] -> end_action
++ [No] -> character_nazgul
 
 ===nazgul_placement_priority===
 <b>Nazgul placement priority:</b> # CLASS: w3-purple

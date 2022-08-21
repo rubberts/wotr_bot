@@ -1,5 +1,7 @@
 ===phase_1_corruption===
+~ corruption_strategy = true
 <b>Phase 1</b> # CLASS: w3-green
+<dfn title="don't be a jerk">respectful</dfn>
 Recover action dice # CLASS: w3-orange
 Draw Event and Faction Event cards # CLASS: w3-orange
 More than 6 Event cards in hand? # CLASS: w3-yellow
@@ -39,12 +41,18 @@ Corruption points lower than Shadow Victory points? # CLASS: w3-yellow
 ===phase_3_corruption===
 <b>Phase 3</b> # CLASS: w3-green
 Select first Fellowship state, starting from top: # CLASS: w3-yellow
-+ Fellowship at starting location and progress is 0 -> phase_3_corruption_random # CLASS: w3-yellow
-+ Fellowship on the Mordor track -> phase_3_corruption_max # CLASS: w3-yellow
-+ <i>Mobile</i> army adjacent to <i>target</i> which would win the game or Shadow only has 7 dice -> phase_3_corruption_1 # CLASS: w3-yellow
-+ Fellowship progress is greater than 4 -> phase_3_corruption_2 # CLASS: w3-yellow
-+ Shortest Fellowship route leads via a Shadow stronghold and they are within two progress of it or have passed it -> phase_3_corruption_2 # CLASS: w3-yellow
-+ None of the above -> phase_3_corruption_1 # CLASS: w3-yellow
++ Fellowship at starting location and progress is 0 # CLASS: w3-yellow
+ -> phase_3_corruption_random
++ Fellowship on the Mordor track # CLASS: w3-yellow
+ -> phase_3_corruption_max
++ <i>Mobile</i> army adjacent to <i>target</i> which would win the game or Shadow only has 7 dice # CLASS: w3-yellow
+ -> phase_3_corruption_1
++ Fellowship progress is greater than 4 # CLASS: w3-yellow
+ -> phase_3_corruption_2
++ Shortest Fellowship route leads via a Shadow stronghold and they are within two progress of it or have passed it # CLASS: w3-yellow
+ -> phase_3_corruption_2
++ None of the above # CLASS: w3-yellow
+ -> phase_3_corruption_1
 
 ===phase_3_corruption_random===
 { RANDOM(1, 2):

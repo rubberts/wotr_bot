@@ -1,9 +1,7 @@
 ===battle===
 <b>Battle</b>  # CLASS: w3-green
 Downgrade elite to continue siege if necessary. # CLASS: w3-orange
-
 Troops from nations not at war form rear-guards. # CLASS: w3-orange
-
 -> shadow_army_defending
 
 ===shadow_army_defending===
@@ -13,7 +11,7 @@ Shadow army defending in stronghold region and not under siege? # CLASS: w3-yell
 
 ===army_value_lower===
 Army value lower than or equal to enemy and army numbers less than 8? # CLASS: w3-blue
-+ [Yes] Retreat into stronghold -> DONE
++ [Yes] -> retreat_into_stronghold
 + [No] -> shadow_army_attacking
 
 ===shadow_army_attacking===
@@ -32,7 +30,6 @@ Besieged or fighting in a stronghold region? # CLASS: w3-yellow
 2. Doesn't use the term "Fellowship revealed" # CLASS: w3-purple
 3. Doesn't place a tile or add corruption # CLASS: w3-purple
 4. Ascending order of initiative on Character cards # CLASS: w3-purple
-
 -> play_a_card
 
 ===round_one_combat===
@@ -49,8 +46,7 @@ Round 1 of combat?  # CLASS: w3-yellow
 5. Settlement # CLASS: w3-purple
 6. Region containing highest <i>value</i> Shadow army possible # CLASS: w3-purple
 7. Region adjacent to highest <i>value</i> Shadow army possible # CLASS: w3-purple
-
-Retreat -> DONE # CLASS: w3-pink
+-> retreat
 
 ===army_is_sortie===
 Army is a sortie? # CLASS: w3-blue
@@ -67,7 +63,6 @@ Holding a playable character card? # CLASS: w3-blue
 1. Doesn't use the term "Fellowship revealed" # CLASS: w3-purple
 2. Doesn't place a tile or add Corruption # CLASS: w3-purple
 3. Ascending order of initiative # CLASS: w3-purple
-
 -> play_a_card
 
 ===army_includes_witch_king===
@@ -83,7 +78,6 @@ Army includes the Witch King and this is the first round of battle? # CLASS: w3-
 4. Doesn't use the term "Fellowship revealed" # CLASS: w3-purple
 5. Doesn't place a tile or add Corruption # CLASS: w3-purple
 6. Ascending order of initiative # CLASS: w3-purple
-
 -> play_a_card
 
 ===shadow_laying_siege===
@@ -110,17 +104,14 @@ Holding a playable Call to Battle card? # CLASS: w3-blue
 5. Doesn't use the term "Fellowship revealed" # CLASS: w3-purple
 6. Doesn't place a tile or add Corruption # CLASS: w3-purple
 7. Ascending order of initiative # CLASS: w3-purple
-
 -> play_a_card
 
 ===play_a_card===
 Play card # CLASS: w3-orange
-
 -> roll_dice
 
 ===roll_dice===
 Roll dice (Re-roll misses) # CLASS: w3-orange
-
 -> remove_casualties
 
 ===remove_casualties===
@@ -128,7 +119,6 @@ Roll dice (Re-roll misses) # CLASS: w3-orange
 1. Maximise the effects of any cards played # CLASS: w3-orange
 2. Maintain the highest army value with the lowest number of army units # CLASS: w3-orange
 3. Keep at least one unit of each nation # CLASS: w3-orange
-
 -> free_people_remain
 
 ===free_people_remain===
@@ -141,19 +131,18 @@ Free People remain? # CLASS: w3-yellow
 - Wins the game # CLASS: w3-yellow
 - Decreases distance to closest <i>target</i> # CLASS: w3-yellow
 - Negates <i>threat</i> # CLASS: w3-yellow
-+ [Yes] Move maximum <i>value</i> into region  # CLASS: w3-pink
--> DONE
-+ [No] End -> DONE # CLASS: w3-pink
++ [Yes] -> move_max_value_into_region
++ [No] -> ending
 
 ===field_battle===
 Field battle or using military strategy or Fellowship on Mordor track? # CLASS: w3-blue
 TODO: Automate the military strategy condition
 + [Yes] -> shadow_army_aggressive
-+ [No] End -> DONE
++ [No] -> ending
 
 ===shadow_army_aggressive===
 Shadow army is aggressive if battle continues or is defending or Fellowship on Mordor track? # CLASS: w3-blue
 + [Yes] -> battle
-+ [No] End -> DONE  # CLASS: w3-pink
++ [No] -> ending
 
 

@@ -32,17 +32,14 @@ Able to recruit a minion? # CLASS: w3-yellow
 Free People have a Will of the West die and Gandalf the White has not been recruited and no minions have been recruited? # CLASS: w3-blue
 + [Yes] (Save muster for use as last die) # IMAGE: ADSAmuster.png
 -> return_knot
-+ [No]
--> muster_recruit_minion_priority
++ [No] -> muster_recruit_minion_priority
 
 ===muster_recruit_minion_priority===
 <b>Priority:</b> # CLASS: w3-purple
 1. Saruman # CLASS: w3-purple
 2. Witch King # CLASS: w3-purple
 3. Mouth of Sauron # CLASS: w3-purple
-
-Muster # CLASS: w3-pink
--> DONE
+-> muster_action
 
 ===muster_nation_not_at_war===
 A Shadow nation is not at war or no faction is in play? # CLASS: w3-yellow
@@ -57,8 +54,7 @@ A Shadow nation is not at war or no faction is in play? # CLASS: w3-yellow
 4. Southrons and Easterlings # CLASS: w3-purple
 
 TODO: Implement Warriors of Middle Earth
-Move nation down one on political track # CLASS: w3-pink
--> DONE
+-> move_nation_down_one_on_political_track
 
 ===muster_playable_muster_card===
 Holding a playable muster card? # CLASS: w3-yellow
@@ -77,10 +73,8 @@ Able to create an <i>exposed</i> target? # CLASS: w3-blue
 
 ===fellowship_adjacent===
 Fellowship adjacent to Shadow settlement and progress puts it outside Mordor and no army is in or adjacent to its region? # CLASS: w3-blue
-+ [Yes]
--> muster_regular_nazgul
-+ [No] Muster # CLASS: w3-pink
--> DONE
++ [Yes] -> muster_regular_nazgul
++ [No] -> muster_action
 
 ===muster_shadow_region===
 Muster possible in region containing a Shadow army? # CLASS: w3-blue
@@ -94,7 +88,6 @@ Muster possible in region containing a Shadow army? # CLASS: w3-blue
 3. Would become <i>mobile</i> # CLASS: w3-purple
 4. Contains Saruman # CLASS: w3-purple
 5. Highest <i>value</i> # CLASS: w3-purple
-
 -> muster_elite_regular
 
 ===muster_settlement_priority===
@@ -116,27 +109,19 @@ Shadow is able to muster? # CLASS: w3-yellow
 ===muster_elite_regular===
 <i>Primary</i> - Elite # CLASS: w3-purple
 <i>Secondary</i> - Regular # CLASS: w3-purple
-
-Muster # CLASS: w3-pink
--> DONE
+-> muster_action
 
 ===muster_elite_nazgul===
 <i>Primary</i> - Elite # CLASS: w3-purple
 <i>Secondary</i> - Nazgul # CLASS: w3-purple
-
-Muster # CLASS: w3-pink
--> DONE
+-> muster_action
 
 ===muster_nazgul_nazgul===
 <i>Primary</i> - Nazgul # CLASS: w3-purple
 <i>Secondary</i> - Nazgul # CLASS: w3-purple
-
-Muster # CLASS: w3-pink
--> DONE
+-> muster_action
 
 ===muster_regular_nazgul===
 <i>Primary</i> - Nazgul # CLASS: w3-purple
 <i>Secondary</i> - Nazgul # CLASS: w3-purple
-
-Muster # CLASS: w3-pink
--> DONE
+-> muster_action
