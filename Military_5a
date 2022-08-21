@@ -1,11 +1,11 @@
 ===phase_5_military===
 <b>Phase 5</b> # CLASS: w3-green
-<b>Shadow under <i>threat</i> or Free People <i>exposed</i></b>? # CLASS: w3-yellow
+<b>Shadow under threat_tooltip or Free People exposed_tooltip</b>? # CLASS: w3-yellow
 + [Yes] -> military_mobile_army_adjacent
 + [No] -> military_witch_king_in_play
 
 ===military_mobile_army_adjacent===
-Mobile army adjacent to <i>threat</i>? # CLASS: w3-blue
+Mobile army adjacent to threat_tooltip? # CLASS: w3-blue
 + [Yes] -> military_attack_character_die
 + [No] -> military_move_create_mobile_army
 
@@ -18,17 +18,17 @@ Attack using army die # CLASS: w3-pink
 -> military_move_create_mobile_army
 
 ===military_move_create_mobile_army===
-Move can create <i>mobile</i> army adjacent to <i>threat</i>? # CLASS: w3-blue
+Move can create mobile_tooltip army adjacent to threat_tooltip? # CLASS: w3-blue
 + [Yes] -> military_move_character_die
 + [No] -> military_move_increase_troops
 
 ===military_move_increase_troops===
-Move can increase troop numbers in the Stronghold under <i>threat</i>? # CLASS: w3-blue
+Move can increase troop numbers in the Stronghold under threat_tooltip? # CLASS: w3-blue
 + [Yes] -> military_move_character_die
 + [No] -> military_mobile_army_route
 
 ===military_mobile_army_route===
-<i>Mobile</i> army's route to closest <i>target</i> takes it towards <i>threat</i>? # CLASS: w3-blue
+Mobile_tooltip army's route to closest target_tooltip takes it towards threat_tooltip? # CLASS: w3-blue
 + [Yes] -> military_move_character_die
 + [No] -> military_move_towards_exposed
 
@@ -38,18 +38,18 @@ Move using character die # CLASS: w3-pink
 -> army
 
 ===military_move_towards_exposed===
-Can move towards <i>exposed</i>? # CLASS: w3-blue
+Can move towards exposed_tooltip? # CLASS: w3-blue
 + [Yes] -> military_move_character_die
 + [No] -> military_stronghold_under_threat
 
 ===military_stronghold_under_threat===
-Stronghold under <i>threat</i> is valid for muster? # CLASS: w3-blue
+Stronghold under threat_tooltip is valid for muster? # CLASS: w3-blue
 ~ return_knot = -> military_threat_sieging
 + [Yes] -> muster
 + [No] -> military_threat_sieging
 
 ===military_threat_sieging===
-<i>Threat</i> is sieging a Shadow stronghold which can use more leadership? # CLASS: w3-blue
+Threat_tooltip is sieging a Shadow stronghold which can use more leadership? # CLASS: w3-blue
 ~ return_knot = -> military_witch_king_in_play
 + [Yes] -> character_2
 + [No] -> military_witch_king_in_play

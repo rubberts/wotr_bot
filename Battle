@@ -39,13 +39,13 @@ Round 1 of combat?  # CLASS: w3-yellow
 
 ===region_priority===
 <b>Region priority:</b> # CLASS: w3-purple
-1. Doesn't create <i>threat</i> # CLASS: w3-purple
-2. Reduces distance to closest <i>target</i> or <i>exposed</i> # CLASS: w3-purple
-3. Region which increases the number of <i>mobile</i> armies # CLASS: w3-purple
-4. Region which increases the number of <i>aggressive</i> armies # CLASS: w3-purple
+1. Doesn't create threat_tooltip # CLASS: w3-purple
+2. Reduces distance to closest target_tooltip or exposed_tooltip # CLASS: w3-purple
+3. Region which increases the number of mobile_tooltip armies # CLASS: w3-purple
+4. Region which increases the number of aggressive_tooltip armies # CLASS: w3-purple
 5. Settlement # CLASS: w3-purple
-6. Region containing highest <i>value</i> Shadow army possible # CLASS: w3-purple
-7. Region adjacent to highest <i>value</i> Shadow army possible # CLASS: w3-purple
+6. Region containing highest value_tooltip Shadow army possible # CLASS: w3-purple
+7. Region adjacent to highest value_tooltip Shadow army possible # CLASS: w3-purple
 -> retreat
 
 ===army_is_sortie===
@@ -129,8 +129,8 @@ Free People remain? # CLASS: w3-yellow
 ===conditions_check===
 <b>ANY condition true:</b> # CLASS: w3-yellow
 - Wins the game # CLASS: w3-yellow
-- Decreases distance to closest <i>target</i> # CLASS: w3-yellow
-- Negates <i>threat</i> # CLASS: w3-yellow
+- Decreases distance to closest target_tooltip # CLASS: w3-yellow
+- Negates threat_tooltip # CLASS: w3-yellow
 + [Yes] -> move_max_value_into_region
 + [No] -> ending
 

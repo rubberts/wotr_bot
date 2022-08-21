@@ -1,5 +1,5 @@
 ===military_witch_king_in_play===
-<b>Witch King is in play and not in a <i>mobile</i> army</b>? # CLASS: w3-yellow
+<b>Witch King is in play and not in a mobile_tooltip army</b>? # CLASS: w3-yellow
 ~ return_knot = -> conditions_to_muster
 + [Yes] -> character_2
 + [No] -> conditions_to_muster
@@ -30,14 +30,14 @@ if no character die then use event die  # CLASS: w3-pink
 -> mobile_army_adjacent_military
 
 ===mobile_army_adjacent_military===
-<b><i>Mobile</i> army adjacent to <i>target</i> or an army which is blocking the route to <i>target<i></b>? # CLASS: w3-yellow
+<b>Mobile_tooltip army adjacent to target_tooltip or an army which is blocking the route to <i>target<i></b>? # CLASS: w3-yellow
 + [Yes] -> any_condition_true
 + [No] -> playable_muster_strategy
 
 ===any_condition_true===
 <b>ANY condition true:</b> # CLASS: w3-blue
-<i>Target</i> provides enough victory points to win # CLASS: w3-blue
-<i>Target</i> is in a nation at war and not under siege # CLASS: w3-blue
+Target_tooltip provides enough victory points to win # CLASS: w3-blue
+Target_tooltip is in a nation at war and not under siege # CLASS: w3-blue
 Fellowship is in Mordor? # CLASS: w3-blue
 ~ return_knot = -> army_4_sequence
 + [Yes] (character die) -> army_4
@@ -60,7 +60,7 @@ TODO: Implement Warrior of Middle Earth
 -> event
 
 ===mobile_army_adjacent_target_military===
-<i>Mobile</i> army adjacent to <i>target</i> # CLASS: w3-yellow
+Mobile_tooltip army adjacent to target_tooltip # CLASS: w3-yellow
 ~ return_knot = -> army_4_sequence_military
 + [Yes] (character die) -> army_4
 ~ return_knot = -> character_sequence_military

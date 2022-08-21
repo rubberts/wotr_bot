@@ -19,7 +19,7 @@
 -> muster_shadow_region
 
 ===muster_stronghold_under_threat===
-A stronghold is under <i>threat</i> and is able to muster? # CLASS: w3-yellow
+A stronghold is under threat_tooltip and is able to muster? # CLASS: w3-yellow
 + [Yes] -> muster_elite_regular
 + [No] -> muster_recruit_minion
 
@@ -67,7 +67,7 @@ Card allows choice of muster location? # CLASS: w3-blue
 + [No] Muster -> DONE
 
 ===muster_exposed_target===
-Able to create an <i>exposed</i> target? # CLASS: w3-blue
+Able to create an exposed_tooltip target? # CLASS: w3-blue
 + [Yes] -> muster_elite_regular
 + [No] -> fellowship_adjacent
 
@@ -84,18 +84,18 @@ Muster possible in region containing a Shadow army? # CLASS: w3-blue
 ===muster_shadow_region_priority===
 <b>Priority:</b> # CLASS: w3-purple
 1. Conducting a siege # CLASS: w3-purple
-2. <i>Mobile</i> army # CLASS: w3-purple
-3. Would become <i>mobile</i> # CLASS: w3-purple
+2. Mobile_tooltip army # CLASS: w3-purple
+3. Would become mobile_tooltip # CLASS: w3-purple
 4. Contains Saruman # CLASS: w3-purple
-5. Highest <i>value</i> # CLASS: w3-purple
+5. Highest value_tooltip # CLASS: w3-purple
 -> muster_elite_regular
 
 ===muster_settlement_priority===
 <b>Settlement closest to:</b> # CLASS: w3-purple
-1. <i>Target</i> in nation at war # CLASS: w3-purple
-2. <i>Target</i> in active nation # CLASS: w3-purple
-3. <i>Mobile</i> army # CLASS: w3-purple
-4. <i>Target</i> in passive nation # CLASS: w3-purple
+1. Target_tooltip in nation at war # CLASS: w3-purple
+2. Target_tooltip in active nation # CLASS: w3-purple
+3. Mobile_tooltip army # CLASS: w3-purple
+4. Target_tooltip in passive nation # CLASS: w3-purple
 
 Less than six Nazgul in play? # CLASS: w3-blue
 + [Yes] -> muster_nazgul_nazgul
@@ -107,21 +107,21 @@ Shadow is able to muster? # CLASS: w3-yellow
 + [No] -> return_knot
 
 ===muster_elite_regular===
-<i>Primary</i> - Elite # CLASS: w3-purple
-<i>Secondary</i> - Regular # CLASS: w3-purple
+Primary_tooltip - Elite # CLASS: w3-purple
+Secondary_tooltip - Regular # CLASS: w3-purple
 -> muster_action
 
 ===muster_elite_nazgul===
-<i>Primary</i> - Elite # CLASS: w3-purple
-<i>Secondary</i> - Nazgul # CLASS: w3-purple
+Primary_tooltip - Elite # CLASS: w3-purple
+Secondary_tooltip - Nazgul # CLASS: w3-purple
 -> muster_action
 
 ===muster_nazgul_nazgul===
-<i>Primary</i> - Nazgul # CLASS: w3-purple
-<i>Secondary</i> - Nazgul # CLASS: w3-purple
+Primary_tooltip - Nazgul # CLASS: w3-purple
+Secondary_tooltip - Nazgul # CLASS: w3-purple
 -> muster_action
 
 ===muster_regular_nazgul===
-<i>Primary</i> - Nazgul # CLASS: w3-purple
-<i>Secondary</i> - Nazgul # CLASS: w3-purple
+Primary_tooltip - Nazgul # CLASS: w3-purple
+Secondary_tooltip - Nazgul # CLASS: w3-purple
 -> muster_action

@@ -1,6 +1,11 @@
 ===event===
 <b>Event</b>  # CLASS: w3-green
-Holding a playable <i>preferred</i> card? # CLASS: w3-yellow
+{ 
+- corruption_strategy:
+    Holding a card with a character symbol? # CLASS: w3-yellow
+- else:
+    Holding a card with an army or muster symbol? # CLASS: w3-yellow
+}
 + [Yes] -> event_priority_1
 + [No] -> event_using_event_die
 
@@ -21,23 +26,27 @@ Holding a playable Event or Faction Event card? # CLASS: w3-blue
 + [No] -> event_draw_event_card
 
 ===event_draw_event_card===
-Draw a <i>preferred</i> Event card # CLASS: w3-orange
-
-Above <i>full hand</i>? # CLASS: w3-blue
+{ 
+- corruption_strategy:
+    Draw a card with a character symbol. # CLASS: w3-yellow
+- else:
+    Draw a card with an army or muster symbol. # CLASS: w3-yellow
+}
+Above full_hand_tooltip? # CLASS: w3-blue
 + [Yes] -> event_priority_3
 + [No] -> end_action
 
 ===event_priority_1===
 <b>Priority:</b> # CLASS: w3-purple
-1. <i>Full hand</i> # CLASS: w3-purple
-2. <i>Preferred</i> Event card # CLASS: w3-purple
-3. <i>Preferred</i> Faction Event card # CLASS: w3-purple
+1. Full_hand_tooltip # CLASS: w3-purple
+2. Preferred_tooltip Event card # CLASS: w3-purple
+3. Preferred_tooltip Faction Event card # CLASS: w3-purple
 4. Ascending order of initiative # CLASS: w3-purple
 -> play_event_faction_card
 
 ===event_priority_2===
 <b>Priority:</b> # CLASS: w3-purple
-1. <i>Full hand</i> # CLASS: w3-purple
+1. Full_hand_tooltip # CLASS: w3-purple
 2. Event card # CLASS: w3-purple
 3. Faction Event card # CLASS: w3-purple
 4. Ascending order of initiative # CLASS: w3-purple
@@ -45,7 +54,12 @@ Above <i>full hand</i>? # CLASS: w3-blue
 
 ===event_priority_3===
 <b>Priority:</b> # CLASS: w3-purple
-1. Not <i>preferred card</i> # CLASS: w3-purple
+{ 
+- corruption_strategy:
+    1. Not a character symbol card # CLASS: w3-purple
+- else:
+    1. Not an army or muster symbol card # CLASS: w3-purple
+}
 2. Doesn't use the term "Fellowship revealed" # CLASS: w3-purple
 3. Doesn't place a tile # CLASS: w3-purple
 4. Descending order of initiative # CLASS: w3-purple

@@ -17,7 +17,7 @@ Fellowship in region which Nazgul can move to and contains no Nazgul? # CLASS: w
 + [No] -> witch_king_in_play_not_mobile
 
 ===witch_king_in_play_not_mobile===
-<b>Witch King is in play and not in a <i>mobile</i> army</b>? # CLASS: w3-yellow # IMAGE: elvenring3.png
+<b>Witch King is in play and not in a mobile_tooltip army</b>? # CLASS: w3-yellow # IMAGE: elvenring3.png
 ~ return_knot = -> corruption_muster_minion
 + [Yes] -> character_2
 + [No] -> corruption_muster_minion
@@ -31,13 +31,13 @@ no faction recruited? # CLASS: w3-yellow
 + [No] -> mobile_army_adjacent_target
 
 ===mobile_army_adjacent_target===
-<i>Mobile</i> army adjacent to <i>target</i>? # CLASS: w3-yellow
+Mobile_tooltip army adjacent to target_tooltip? # CLASS: w3-yellow
 + [Yes] -> fellowship_on_mordor_track
 + [No] -> playable_character_cards
 
 ===fellowship_on_mordor_track===
-<b>Fellowship on Mordor track or <i>target</i> would win the game</b> or # CLASS: w3-blue # IMAGE: elvenring3.png
-<i>target</i> not under siege and in a nation at War? # CLASS: w3-blue
+<b>Fellowship on Mordor track or target_tooltip would win the game</b> or # CLASS: w3-blue # IMAGE: elvenring3.png
+target_tooltip not under siege and in a nation at War? # CLASS: w3-blue
 ~ return_knot = -> mobile_army_adjacent_target
 + [Yes] -> character
 + [No] -> playable_character_cards
@@ -54,7 +54,7 @@ Playable character cards available? # CLASS: w3-yellow
 -> event
 
 ===mobile_army_adjacent_target_siege===
-<i>Mobile</i> army adjacent to <i>target</i> not under siege? # CLASS: w3-yellow
+Mobile_tooltip army adjacent to target_tooltip not under siege? # CLASS: w3-yellow
 ~ return_knot = -> army_2_next
 + [Yes] -> character
 TODO: Implement Warrior of Middle Earth

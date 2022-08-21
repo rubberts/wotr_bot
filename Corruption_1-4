@@ -1,7 +1,6 @@
 ===phase_1_corruption===
 ~ corruption_strategy = true
 <b>Phase 1</b> # CLASS: w3-green
-<dfn title="don't be a jerk">respectful</dfn>
 Recover action dice # CLASS: w3-orange
 Draw Event and Faction Event cards # CLASS: w3-orange
 More than 6 Event cards in hand? # CLASS: w3-yellow
@@ -45,7 +44,7 @@ Select first Fellowship state, starting from top: # CLASS: w3-yellow
  -> phase_3_corruption_random
 + Fellowship on the Mordor track # CLASS: w3-yellow
  -> phase_3_corruption_max
-+ <i>Mobile</i> army adjacent to <i>target</i> which would win the game or Shadow only has 7 dice # CLASS: w3-yellow
++ Mobile_tooltip army adjacent to target_tooltip which would win the game or Shadow only has 7 dice # CLASS: w3-yellow
  -> phase_3_corruption_1
 + Fellowship progress is greater than 4 # CLASS: w3-yellow
  -> phase_3_corruption_2
