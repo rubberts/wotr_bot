@@ -5,17 +5,9 @@
 + [No] -> military_witch_king_in_play
 
 ===military_mobile_army_adjacent===
-Mobile army adjacent to threat_tooltip? # CLASS: w3-blue
+Mobile_tooltip army adjacent to threat_tooltip? # CLASS: w3-blue
 + [Yes] -> military_attack_character_die
 + [No] -> military_move_create_mobile_army
-
-===military_attack_character_die===
-Attack using character die # CLASS: w3-pink
--> military_attack_army_die
-
-===military_attack_army_die===
-Attack using army die # CLASS: w3-pink
--> military_move_create_mobile_army
 
 ===military_move_create_mobile_army===
 Move can create mobile_tooltip army adjacent to threat_tooltip? # CLASS: w3-blue
@@ -35,7 +27,7 @@ Mobile_tooltip army's route to closest target_tooltip takes it towards threat_to
 ===military_move_character_die===
 Move using character die # CLASS: w3-pink
 ~ return_knot = -> military_stronghold_under_threat
--> army
++ [Done] -> army
 
 ===military_move_towards_exposed===
 Can move towards exposed_tooltip? # CLASS: w3-blue

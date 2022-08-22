@@ -35,11 +35,11 @@ Free People have a Will of the West die and Gandalf the White has not been recru
 + [No] -> muster_recruit_minion_priority
 
 ===muster_recruit_minion_priority===
-<b>Priority:</b> # CLASS: w3-purple
+<b>Minion recruitment priority:</b> # CLASS: w3-purple
 1. Saruman # CLASS: w3-purple
 2. Witch King # CLASS: w3-purple
 3. Mouth of Sauron # CLASS: w3-purple
--> muster_action
++ [Done] -> muster_action
 
 ===muster_nation_not_at_war===
 A Shadow nation is not at war or no faction is in play? # CLASS: w3-yellow
@@ -47,14 +47,13 @@ A Shadow nation is not at war or no faction is in play? # CLASS: w3-yellow
 + [No] -> muster_playable_muster_card
 
 ===muster_political_track_priority===
-<b>Priority:</b> # CLASS: w3-purple
+<b>Political track movement priority:</b> # CLASS: w3-purple
 1. Isengard # CLASS: w3-purple
 2. Faction # CLASS: w3-purple
 3. Sauron # CLASS: w3-purple
 4. Southrons and Easterlings # CLASS: w3-purple
-
 TODO: Implement Warriors of Middle Earth
--> move_nation_down_one_on_political_track
++ [Done] -> move_nation_down_one_on_political_track
 
 ===muster_playable_muster_card===
 Holding a playable muster card? # CLASS: w3-yellow
@@ -82,13 +81,13 @@ Muster possible in region containing a Shadow army? # CLASS: w3-blue
 + [No] -> muster_settlement_priority
 
 ===muster_shadow_region_priority===
-<b>Priority:</b> # CLASS: w3-purple
+<b>Muster in region containing army priority:</b> # CLASS: w3-purple
 1. Conducting a siege # CLASS: w3-purple
 2. Mobile_tooltip army # CLASS: w3-purple
 3. Would become mobile_tooltip # CLASS: w3-purple
 4. Contains Saruman # CLASS: w3-purple
 5. Highest value_tooltip # CLASS: w3-purple
--> muster_elite_regular
++ [Done] -> muster_elite_regular
 
 ===muster_settlement_priority===
 <b>Settlement closest to:</b> # CLASS: w3-purple
@@ -96,7 +95,9 @@ Muster possible in region containing a Shadow army? # CLASS: w3-blue
 2. Target_tooltip in active nation # CLASS: w3-purple
 3. Mobile_tooltip army # CLASS: w3-purple
 4. Target_tooltip in passive nation # CLASS: w3-purple
++ [Done] -> less_six_nazgul
 
+===less_six_nazgul===
 Less than six Nazgul in play? # CLASS: w3-blue
 + [Yes] -> muster_nazgul_nazgul
 + [No] -> muster_elite_nazgul
@@ -109,19 +110,19 @@ Shadow is able to muster? # CLASS: w3-yellow
 ===muster_elite_regular===
 Primary_tooltip - Elite # CLASS: w3-purple
 Secondary_tooltip - Regular # CLASS: w3-purple
--> muster_action
++ [Done] -> muster_action
 
 ===muster_elite_nazgul===
 Primary_tooltip - Elite # CLASS: w3-purple
 Secondary_tooltip - Nazgul # CLASS: w3-purple
--> muster_action
++ [Done] -> muster_action
 
 ===muster_nazgul_nazgul===
 Primary_tooltip - Nazgul # CLASS: w3-purple
 Secondary_tooltip - Nazgul # CLASS: w3-purple
--> muster_action
++ [Done] -> muster_action
 
 ===muster_regular_nazgul===
 Primary_tooltip - Nazgul # CLASS: w3-purple
 Secondary_tooltip - Nazgul # CLASS: w3-purple
--> muster_action
++ [Done] -> muster_action

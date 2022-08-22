@@ -11,20 +11,21 @@ INCLUDE Event
 INCLUDE Battle
 INCLUDE Warriors
 
-<b>War of the Ring non-cheating bot for solo players</b>
-Plays as the Shadow in War of the Ring 2nd edition.
-Support for Warriors of Middle Earth expansion coming soon!
-<i>Based on Queller Bot By Quitch Version 3.0.1 - 2020-07-19</i>
-
 VAR warriors_of_middle_earth = false
 VAR lords_of_middle_earth = false
 VAR return_knot = -> phase_1_corruption
 VAR corruption_strategy = false
 
+<b>War of the Ring non-cheating bot for solo players</b>
+Plays as the Shadow in War of the Ring 2nd edition.
+Support for Warriors of Middle Earth expansion coming soon!
+<i>Based on Queller Bot By Quitch Version 3.0.1 - 2020-07-19</i>
 {corruption_strategy} # CLASS: w3-black
 { RANDOM(1, 2):
-- 1: -> phase_1_corruption 
-- 2: -> phase_1_military
+- 1: # IMAGE: corruption_strategy.jpg
+    -> phase_1_corruption 
+- 2: # IMAGE: military_strategy.jpg
+    -> phase_1_military
 }
 
 ===end_action===
@@ -95,6 +96,40 @@ VAR corruption_strategy = false
 ===ending===
 <b>End</b> # CLASS: w3-pink
 -> next_action_end_turn
+
+===use_muster_die_set_aside===
+<b>Use Muster die set aside for minion</b> # CLASS: w3-pink
+-> next_action_end_turn
+
+===play_card_character_die===
+<b>Play card using character die</b> # CLASS: w3-pink # IMAGE: ADSAcharacter.png
++ [Done] -> next_action_end_turn
++ [No Character Die] -> play_card_event_die
+
+===play_card_event_die===
+<b>Play card using using event die</b> # CLASS: w3-pink # IMAGE: ADSAevent.png
++ [Done] -> next_action_end_turn
++ [No Event Die] -> mobile_army_adjacent_military
+
+===military_attack_character_die===
+<b>Attack using character die</b> # CLASS: w3-pink # IMAGE: ADSAcharacter.png
++ [Done] -> next_action_end_turn
++ [No Character Die] -> military_attack_army_die
+
+===military_attack_army_die===
+<b>Attack using army die</b> # CLASS: w3-pink # IMAGE: ADSAevent.png
++ [Done] -> next_action_end_turn
++ [No Army Die] -> military_move_create_mobile_army
+
+===attack_character_die===
+Attack using character die # CLASS: w3-pink  # IMAGE: ADSAcharacter.png
++ [Done] -> next_action_end_turn
++ [No Character Die] -> attack_army_die
+
+===attack_army_die===
+Attack using army die # CLASS: w3-pink  # IMAGE: ADSAarmy.png
++ [Done] -> next_action_end_turn
++ [No Army Die] -> move_create_mobile_army
 
 ===next_action_end_turn===
 + [Next Action] -> next_action

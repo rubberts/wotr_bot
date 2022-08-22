@@ -92,6 +92,4 @@ TODO: Implement Warrior of Middle Earth
 
 ===discard_unplayable===
 Discard unplayable dice # CLASS: w3-pink
-Use Muster die set aside for minion # CLASS: w3-pink
--> DONE
-
++ [Done] -> use_muster_die_set_aside

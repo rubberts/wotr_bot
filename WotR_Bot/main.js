@@ -4,8 +4,6 @@ const TOOLTIP_FULL_HAND = "<div class=\"tooltip\"><i>Full hand</i><span class=\"
 const TOOLTIP_GARRISON = "<div class=\"tooltip\"><i>Garrison</i><span class=\"tooltiptext\">An army inside a stronghold or in a stronghold region.</span></div>";
 const TOOLTIP_MOBILE = "<div class=\"tooltip\"><i>Mobile</i><span class=\"tooltiptext\">An army which can move towards its target without creating threat and: <ol><li>is aggressive against its closest target, or one within the same national border, and all armies on the shortest route to it; or</li><li>would turn a passive siege aggressive at its closest target; or</li><li>has hit the stacking limit.</li><ol></span></div>";
 const TOOLTIP_PASSIVE = "<div class=\"tooltip\"><i>Passive</i><span class=\"tooltiptext\">An army that is not aggressive.</span></div>";
-const TOOLTIP_PREFERRED_CORRUPTION = "<div class=\"tooltip\"><i>Preferred</i><span class=\"tooltiptext\">Cards with a character symbol.</span></div>";
-const TOOLTIP_PREFERRED_MILITARY = "<div class=\"tooltip\"><i>Preferred</i><span class=\"tooltiptext\">Cards with an army or muster symbol.</span></div>";
 const TOOLTIP_PRIMARY = "<div class=\"tooltip\"><i>Primary</i><span class=\"tooltiptext\">The muster region closest to the defined target or army.</span></div>";
 const TOOLTIP_SECONDARY = "<div class=\"tooltip\"><i>Secondary</i><span class=\"tooltiptext\">The muster region closest to the primary.</span></div>";
 const TOOLTIP_TARGET = "<div class=\"tooltip\"><i>Target</i><span class=\"tooltiptext\">Order of priority when tied for distance:<ol><li>Conquered Shadow stronghold.</li><li>Free Peoples’ army creating threat.</li><li>Stronghold not currently under siege by a mobile Shadow army:<ul><li>Nation at war</li><li>Active nation</li><li>Passive nation</li></ul></li><li>Unconquered Free Peoples’ city:<ul><li>Nation at war</li><li>Active nation</li></ul></li><li>Lowest value garrison.</li></ol></span></div>";
@@ -18,8 +16,6 @@ const TOOLTIP_FULL_HAND_L = "<div class=\"tooltip\"><i>full hand</i><span class=
 const TOOLTIP_GARRISON_L = "<div class=\"tooltip\"><i>garrison</i><span class=\"tooltiptext\">An army inside a stronghold or in a stronghold region.</span></div>";
 const TOOLTIP_MOBILE_L = "<div class=\"tooltip\"><i>mobile</i><span class=\"tooltiptext\">An army which can move towards its target without creating threat and: <ol><li>is aggressive against its closest target, or one within the same national border, and all armies on the shortest route to it; or</li><li>would turn a passive siege aggressive at its closest target; or</li><li>has hit the stacking limit.</li><ol></span></div>";
 const TOOLTIP_PASSIVE_L = "<div class=\"tooltip\"><i>passive</i><span class=\"tooltiptext\">An army that is not aggressive.</span></div>";
-const TOOLTIP_PREFERRED_CORRUPTION_L = "<div class=\"tooltip\"><i>preferred</i><span class=\"tooltiptext\">Cards with a character symbol.</span></div>";
-const TOOLTIP_PREFERRED_MILITARY_L = "<div class=\"tooltip\"><i>preferred</i><span class=\"tooltiptext\">Cards with an army or muster symbol.</span></div>";
 const TOOLTIP_PRIMARY_L = "<div class=\"tooltip\"><i>primary</i><span class=\"tooltiptext\">The muster region closest to the defined target or army.</span></div>";
 const TOOLTIP_SECONDARY_L = "<div class=\"tooltip\"><i>secondary</i><span class=\"tooltiptext\">The muster region closest to the primary.</span></div>";
 const TOOLTIP_TARGET_L = "<div class=\"tooltip\"><i>target</i><span class=\"tooltiptext\">Order of priority when tied for distance:<ol><li>Conquered Shadow stronghold.</li><li>Free Peoples’ army creating threat.</li><li>Stronghold not currently under siege by a mobile Shadow army:<ul><li>Nation at war</li><li>Active nation</li><li>Passive nation</li></ul></li><li>Unconquered Free Peoples’ city:<ul><li>Nation at war</li><li>Active nation</li></ul></li><li>Lowest value garrison.</li></ol></span></div>";
@@ -432,8 +428,6 @@ function addToolTips(findText) {
     findText = findText.replace("Garrison_tooltip", TOOLTIP_GARRISON);
     findText = findText.replace("Mobile_tooltip", TOOLTIP_MOBILE);
     findText = findText.replace("Passive_tooltip", TOOLTIP_PASSIVE);
-    findText = findText.replace("Preferred_tooltip", TOOLTIP_PREFERRED_CORRUPTION);
-    findText = findText.replace("Preferred_tooltip_military", TOOLTIP_PREFERRED_MILITARY);
     findText = findText.replace("Primary_tooltip", TOOLTIP_PRIMARY);
     findText = findText.replace("Secondary_tooltip", TOOLTIP_SECONDARY);
     findText = findText.replace("Target_tooltip", TOOLTIP_TARGET);
@@ -446,8 +440,6 @@ function addToolTips(findText) {
     findText = findText.replace("garrison_tooltip", TOOLTIP_GARRISON_L);
     findText = findText.replace("mobile_tooltip", TOOLTIP_MOBILE_L);
     findText = findText.replace("passive_tooltip", TOOLTIP_PASSIVE_L);
-    findText = findText.replace("preferred_tooltip", TOOLTIP_PREFERRED_CORRUPTION_L);
-    findText = findText.replace("preferred_tooltip_military", TOOLTIP_PREFERRED_MILITARY_L);
     findText = findText.replace("primary_tooltip", TOOLTIP_PRIMARY_L);
     findText = findText.replace("secondary_tooltip", TOOLTIP_SECONDARY_L);
     findText = findText.replace("target_tooltip", TOOLTIP_TARGET_L);

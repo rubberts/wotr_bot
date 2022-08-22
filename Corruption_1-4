@@ -2,7 +2,13 @@
 ~ corruption_strategy = true
 <b>Phase 1</b> # CLASS: w3-green
 Recover action dice # CLASS: w3-orange
++ [Done] -> phase_1_corruption_2
+
+===phase_1_corruption_2===
 Draw Event and Faction Event cards # CLASS: w3-orange
++ [Done] -> phase_1_corruption_3
+
+===phase_1_corruption_3===
 More than 6 Event cards in hand? # CLASS: w3-yellow
 + [Yes] -> phase_1_corruption_discard
 + [No] -> phase_2_corruption
@@ -14,27 +20,28 @@ Holding more than 1 strategy card? # CLASS: w3-blue
 + [No] -> phase_1_corruption_discard_character
 
 ===phase_1_corruption_discard_strategy===
-Discard priority: # CLASS: w3-orange
+Event card discard priority: # CLASS: w3-orange
 1. Doesn't use the term "Fellowship Revealed" # CLASS: w3-orange
 2. Doesn't place a tile # CLASS: w3-orange
 3. Strategy card # CLASS: w3-orange
 4. Character card # CLASS: w3-orange
 5. Descending order of priority # CLASS: w3-orange
--> phase_2_corruption
++ [Done] -> phase_2_corruption
 
 ===phase_1_corruption_discard_character===
-Discard priority: # CLASS: w3-orange
+Event card discard priority: # CLASS: w3-orange
 1. Doesn't use the term "Fellowship Revealed" # CLASS: w3-orange
 2. Doesn't place a tile # CLASS: w3-orange
 3. Character card # CLASS: w3-orange
 4. Strategy card # CLASS: w3-orange
 5. Descending order of priority # CLASS: w3-orange
--> phase_2_corruption
++ [Done] -> phase_2_corruption
 
 ===phase_2_corruption===
 <b>Phase 2</b> # CLASS: w3-green
 Corruption points lower than Shadow Victory points? # CLASS: w3-yellow
-+ [Yes] -> phase_3_military
++ [Yes] -> phase_3_military # IMAGE: military_strategy.jpg
+
 + [No] -> phase_3_corruption
 
 ===phase_3_corruption===
@@ -61,21 +68,21 @@ Select first Fellowship state, starting from top: # CLASS: w3-yellow
 
 ===phase_3_corruption_max===
 Assign maximum dice allowed to the hunt pool # CLASS: w3-orange
--> phase_4_corruption
++ [Done] -> phase_4_corruption
 
 ===phase_3_corruption_0===
 Assign 0 dice to the hunt pool # CLASS: w3-orange
--> phase_4_corruption
++ [Done] -> phase_4_corruption
 
 ===phase_3_corruption_1===
 Assign 1 die to the hunt pool # CLASS: w3-orange
--> phase_4_corruption
++ [Done] -> phase_4_corruption
 
 ===phase_3_corruption_2===
 Assign 2 dice to the hunt pool # CLASS: w3-orange
--> phase_4_corruption
++ [Done] -> phase_4_corruption
 
 ===phase_4_corruption===
 <b>Phase 4</b> # CLASS: w3-green
 Roll remaining action dice # CLASS: w3-orange
--> phase_5_corruption
++ [Done] -> phase_5_corruption

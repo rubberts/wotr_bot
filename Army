@@ -52,12 +52,12 @@ Target_tooltip not under siege? # CLASS: w3-blue
 + [No] -> army_fellowship_region
 
 ===army_target_not_under_seige_priority===
-<bPriority:</b> # CLASS: w3-purple
+<bAttack target priority:</b> # CLASS: w3-purple
 1. Target_tooltip is nation at war # CLASS: w3-purple
 2. Attack would not move nation to war # CLASS: w3-purple
 3. Target_tooltip in active nation # CLASS: w3-purple
 4. Highest value_tooltip Shadow army # CLASS: w3-purple
--> attack
++ [Done] -> attack
 
 ===army_fellowship_region===
 Army can move into Fellowship region without increasing distance to target_tooltip? # CLASS: w3-yellow
@@ -90,13 +90,13 @@ Would increase number of mobile_tooltip armies or make one of higher value_toolt
 + [No] -> army_mobile_move_attack
 
 ===army_merge_priority===
-<b>Priority:</b> # CLASS: w3-purple
+<b>Army merge priority:</b> # CLASS: w3-purple
 1. Decrease distance to target_tooltip # CLASS: w3-purple
 2. Creates the highest value_tooltip army possible # CLASS: w3-purple
 3. Moves furthest army from closest target_tooltip # CLASS: w3-purple
 4. Least left-over units # CLASS: w3-purple
 5. Destination contains stronghold # CLASS: w3-purple
--> move
++ [Done] -> move
 
 ===army_mobile_move_attack===
 Mobile_tooltip army can move or attack towards closest target_tooltip? # CLASS: w3-yellow
@@ -104,7 +104,7 @@ Mobile_tooltip army can move or attack towards closest target_tooltip? # CLASS: 
 + [No] -> army_on_board
 
 ===army_move_attach_priority===
-<b>Priority:</b> # CLASS: w3-purple
+<b>Mobile army mover or attack priority:</b> # CLASS: w3-purple
 1. Shadow army adjacent to target_tooltip # CLASS: w3-purple
 2. Target_tooltip nation at war # CLASS: w3-purple
 3. Doesn't make passive nation active # CLASS: w3-purple
@@ -113,7 +113,7 @@ Mobile_tooltip army can move or attack towards closest target_tooltip? # CLASS: 
 6. Highest value_tooltip Shadow army # CLASS: w3-purple
 7. Doesn't block another mobile_tooltip army's shortest route to their closest target_tooltip # CLASS: w3-purple
 8. Region contains Fellowship # CLASS: w3-purple
--> move_attack
++ [Done] -> move_attack
 
 ===army_on_board===
 Have an army on the board? # CLASS: w3-yellow
@@ -121,11 +121,11 @@ Have an army on the board? # CLASS: w3-yellow
 + [No] -> return_knot
 
 ===army_move_priority===
-<b>Priority:</b> # CLASS: w3-purple
+<b>Move army priority:</b> # CLASS: w3-purple
 1. Doesn't change nation to at war # CLASS: w3-purple
 2. Creates the highest army value_tooltip possible # CLASS: w3-purple
 3. Closest target has passive_tooltip army adjacent # CLASS: w3-purple
 4. Movement ends adjacent to another Shadow army # CLASS: w3-purple
 5. Decrease distance to closest target_tooltip # CLASS: w3-purple
 6. Highest value_tooltip Shadow army # CLASS: w3-purple
--> move
++ [Done] -> move

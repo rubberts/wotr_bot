@@ -22,13 +22,6 @@ Holding a Fellowship revealed character card? # CLASS: w3-blue
 + [Yes] -> play_card_character_die
 + [No] -> mobile_army_adjacent_military
 
-===play_card_character_die===
-Play card using character die # CLASS: w3-pink
-
-if no character die then use event die  # CLASS: w3-pink
-
--> mobile_army_adjacent_military
-
 ===mobile_army_adjacent_military===
 <b>Mobile_tooltip army adjacent to target_tooltip or an army which is blocking the route to <i>target<i></b>? # CLASS: w3-yellow
 + [Yes] -> any_condition_true

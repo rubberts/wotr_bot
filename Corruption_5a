@@ -13,13 +13,7 @@ Mobile_tooltip army adjacent to threat_tooltip? # CLASS: w3-blue
 + [Yes] -> attack_character_die
 + [No] -> move_create_mobile_army
 
-===attack_character_die===
-Attack using character die # CLASS: w3-pink  # IMAGE: ADSAcharacter.png
--> attack_army_die
 
-===attack_army_die===
-Attack using army die # CLASS: w3-pink  # IMAGE: ADSAarmy.png
--> move_create_mobile_army
 
 ===move_create_mobile_army===
 Move can create mobile_tooltip army adjacent to threat_tooltip? # CLASS: w3-blue
@@ -39,7 +33,7 @@ Mobile_tooltip army's route to closest target_tooltip takes it towards threat_to
 ===move_character_die===
 Move using character die # CLASS: w3-pink # IMAGE: ADSAcharacter.png
 ~ return_knot = -> stronghold_under_threat
--> army
++ [Done] -> army
 
 ===move_towards_exposed===
 Can move towards exposed_tooltip? # CLASS: w3-blue
