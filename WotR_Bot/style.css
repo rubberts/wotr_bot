@@ -214,25 +214,44 @@ img {
     padding-bottom: 20px;
 }
 
+/*
+  Class applied to all choices
+  (Will always appear inside <p> element by default.)
+*/
+.menu {
+    text-align: center;
+    line-height: 1.7em;
+	box-shadow: 0px 1px 0px 0px #1c1b18;
+    background:linear-gradient(to bottom, #eae0c2 5%, #ccc2a6 100%);
+    background-color:#eae0c2;
+    border-radius:15px;
+    border:2px solid #333029;
+    display:inline-block;
+    cursor:pointer;
+    color:#505739;
+    width: 20%;
+	padding:12px 16px;
+}
+
+.menu a {
+    font-size: 14pt;
+	text-decoration:none;
+    text-shadow:0px 1px 0px #ffffff;
+    font-family:Aniron;
+    font-weight:bold;
+}
+
 #controls {
     z-index: 4;
     font-size: 9pt;
     text-align: center;
     padding-bottom: 6px;
-    position: fixed;
-    right: 14px;
+    /*position: fixed;
+    right: 14px;*/
     top: 4px;
     user-select: none;
     background: white;
     transition: color 0.6s, background 0.6s;
-}
-
-#controls [disabled] {
-    color: #ccc;
-}
-
-#controls>*:not(:last-child):after {
-    content: " | ";
 }
 
 @media screen and (max-width: 980px) {
@@ -263,12 +282,8 @@ body.dark {
     background: black;
 }
 
-.dark .written-in-ink {
-    background: black;
-}
-
 .dark a {
-    color: #cc8f1a;
+    color: #453303;
     transition: color 0.6s;
 }
 

@@ -33,17 +33,20 @@ no faction recruited? # CLASS: w3-yellow
 ===mobile_army_adjacent_target===
 Mobile_tooltip army adjacent to target_tooltip? # CLASS: w3-yellow
 + [Yes] -> fellowship_on_mordor_track
-+ [No] -> playable_character_cards
++ [No] -> corruption_5b_pass_possible
 
 ===fellowship_on_mordor_track===
 <b>Fellowship on Mordor track or target_tooltip would win the game</b> or # CLASS: w3-blue # IMAGE: elvenring3.png
 target_tooltip not under siege and in a nation at War? # CLASS: w3-blue
-~ return_knot = -> mobile_army_adjacent_target
+~ return_knot = -> army_4_next
 + [Yes] -> character
-+ [No] -> playable_character_cards
++ [No] -> corruption_5b_pass_possible
+
+===army_4_next===
+~ return_knot = -> corruption_5b_pass_possible
+-> army_4
 
 ===playable_character_cards===
-Pass # CLASS: w3-pink
 Playable character cards available? # CLASS: w3-yellow
 ~ return_knot = -> event_next
 + [Yes] (use character die) -> event
@@ -85,11 +88,9 @@ TODO: Implement Warrior of Middle Earth
 TODO: Implement Warrior of Middle Earth
 
 ===phase_5_sequence===
-~ return_knot = -> discard_unplayable
+~ return_knot = -> common_5b_discard_unplayable
 <b>Phase 5</b> # CLASS: w3-green
 (use ring for any condition possible) # CLASS: w3-green # IMAGE: elvenring3.png
--> shadow_under_threat
+-> shadow_under_threat_corruption
 
-===discard_unplayable===
-Discard unplayable dice # CLASS: w3-pink
-+ [Done] -> use_muster_die_set_aside
+

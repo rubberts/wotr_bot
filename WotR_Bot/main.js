@@ -1,36 +1,35 @@
 const TOOLTIP_AGGRESSIVE = "<div class=\"tooltip\"><i>Aggressive</i><span class=\"tooltiptext\"><ul><li>The army of an active nation whose value = opposing army value; or</li><li>an army which has hit the stacking limit and contains the Witch King or 5 leadership.</li></ul></span></div>";
-const TOOLTIP_EXPOSED = "<div class=\"tooltip\"><i>Exposed</i><span class=\"tooltiptext\">An empty target that a Shadow army’s shortest path to is clear of enemy armies.</span></div>";
+const TOOLTIP_EXPOSED = "<div class=\"tooltip\"><i>Exposed</i><span class=\"tooltiptext\">An empty target that a Shadow army's shortest path to is clear of enemy armies.</span></div>";
 const TOOLTIP_FULL_HAND = "<div class=\"tooltip\"><i>Full hand</i><span class=\"tooltiptext\">Holding the maximum number of allowed cards.</span></div>";
 const TOOLTIP_GARRISON = "<div class=\"tooltip\"><i>Garrison</i><span class=\"tooltiptext\">An army inside a stronghold or in a stronghold region.</span></div>";
 const TOOLTIP_MOBILE = "<div class=\"tooltip\"><i>Mobile</i><span class=\"tooltiptext\">An army which can move towards its target without creating threat and: <ol><li>is aggressive against its closest target, or one within the same national border, and all armies on the shortest route to it; or</li><li>would turn a passive siege aggressive at its closest target; or</li><li>has hit the stacking limit.</li><ol></span></div>";
 const TOOLTIP_PASSIVE = "<div class=\"tooltip\"><i>Passive</i><span class=\"tooltiptext\">An army that is not aggressive.</span></div>";
 const TOOLTIP_PRIMARY = "<div class=\"tooltip\"><i>Primary</i><span class=\"tooltiptext\">The muster region closest to the defined target or army.</span></div>";
 const TOOLTIP_SECONDARY = "<div class=\"tooltip\"><i>Secondary</i><span class=\"tooltiptext\">The muster region closest to the primary.</span></div>";
-const TOOLTIP_TARGET = "<div class=\"tooltip\"><i>Target</i><span class=\"tooltiptext\">Order of priority when tied for distance:<ol><li>Conquered Shadow stronghold.</li><li>Free Peoples’ army creating threat.</li><li>Stronghold not currently under siege by a mobile Shadow army:<ul><li>Nation at war</li><li>Active nation</li><li>Passive nation</li></ul></li><li>Unconquered Free Peoples’ city:<ul><li>Nation at war</li><li>Active nation</li></ul></li><li>Lowest value garrison.</li></ol></span></div>";
-const TOOLTIP_THREAT = "<div class=\"tooltip\"><i>Threat</i><span class=\"tooltiptext\">A region which contains:<ul><li>An active nation Free Peoples’ army within 2 regions of an unconquered Shadow stronghold with a higher value than the Shadow garrison. Exclude Free Peoples’ garrisons; or</li><li>less than 4 hit points of Shadow units are in the Orthanc garrison with Saruman, and the Ent faction is in play or WoME is not in use and Gandalf the White is in play and a companion is in Fangorn.</li></ul></span></div>";
+const TOOLTIP_TARGET = "<div class=\"tooltip\"><i>Target</i><span class=\"tooltiptext\">Order of priority when tied for distance:<ol><li>Conquered Shadow stronghold.</li><li>Free Peoples' army creating threat.</li><li>Stronghold not currently under siege by a mobile Shadow army:<ul><li>Nation at war</li><li>Active nation</li><li>Passive nation</li></ul></li><li>Unconquered Free Peoples' city:<ul><li>Nation at war</li><li>Active nation</li></ul></li><li>Lowest value garrison.</li></ol></span></div>";
+const TOOLTIP_THREAT = "<div class=\"tooltip\"><i>Threat</i><span class=\"tooltiptext\">A region which contains:<ul><li>An active nation Free Peoples' army within 2 regions of an unconquered Shadow stronghold with a higher value than the Shadow garrison. Exclude Free Peoples' garrisons; or</li><li>less than 4 hit points of Shadow units are in the Orthanc garrison with Saruman, and the Ent faction is in play or WoME is not in use and Gandalf the White is in play and a companion is in Fangorn.</li></ul></span></div>";
 const TOOLTIP_VALUE = "<div class=\"tooltip\"><i>Value</i><span class=\"tooltiptext\">Point rating of army calculated as:<ul><li>+1 for each hit point</li><li>+1 for each combat die including Captain of the West (capped at 5)</li><li>+1 for each point of leadership (capped at lower of 5 or total army units)</li><li>+1 for each Captain of the West</li><li>+1 for defending in a fortification or city region</li><li>x1.5 (rounded down) for defending in a stronghold<ul><li>Mobile and threat always use this even if no siege is occurring</li><li>HP multiplied for only the five strongest units in the region</li></ul></li><li>x0.5 for sorties (rounded down)</li><li>Exclude Saruman from value when calculating if an army is mobile</li></ul></span></div>";
 
 const TOOLTIP_AGGRESSIVE_L = "<div class=\"tooltip\"><i>aggressive</i><span class=\"tooltiptext\"><ul><li>The army of an active nation whose value = opposing army value; or</li><li>an army which has hit the stacking limit and contains the Witch King or 5 leadership.</li></ul></span></div>";
-const TOOLTIP_EXPOSED_L = "<div class=\"tooltip\"><i>exposed</i><span class=\"tooltiptext\">An empty target that a Shadow army’s shortest path to is clear of enemy armies.</span></div>";
+const TOOLTIP_EXPOSED_L = "<div class=\"tooltip\"><i>exposed</i><span class=\"tooltiptext\">An empty target that a Shadow army's shortest path to is clear of enemy armies.</span></div>";
 const TOOLTIP_FULL_HAND_L = "<div class=\"tooltip\"><i>full hand</i><span class=\"tooltiptext\">Holding the maximum number of allowed cards.</span></div>";
 const TOOLTIP_GARRISON_L = "<div class=\"tooltip\"><i>garrison</i><span class=\"tooltiptext\">An army inside a stronghold or in a stronghold region.</span></div>";
 const TOOLTIP_MOBILE_L = "<div class=\"tooltip\"><i>mobile</i><span class=\"tooltiptext\">An army which can move towards its target without creating threat and: <ol><li>is aggressive against its closest target, or one within the same national border, and all armies on the shortest route to it; or</li><li>would turn a passive siege aggressive at its closest target; or</li><li>has hit the stacking limit.</li><ol></span></div>";
 const TOOLTIP_PASSIVE_L = "<div class=\"tooltip\"><i>passive</i><span class=\"tooltiptext\">An army that is not aggressive.</span></div>";
 const TOOLTIP_PRIMARY_L = "<div class=\"tooltip\"><i>primary</i><span class=\"tooltiptext\">The muster region closest to the defined target or army.</span></div>";
 const TOOLTIP_SECONDARY_L = "<div class=\"tooltip\"><i>secondary</i><span class=\"tooltiptext\">The muster region closest to the primary.</span></div>";
-const TOOLTIP_TARGET_L = "<div class=\"tooltip\"><i>target</i><span class=\"tooltiptext\">Order of priority when tied for distance:<ol><li>Conquered Shadow stronghold.</li><li>Free Peoples’ army creating threat.</li><li>Stronghold not currently under siege by a mobile Shadow army:<ul><li>Nation at war</li><li>Active nation</li><li>Passive nation</li></ul></li><li>Unconquered Free Peoples’ city:<ul><li>Nation at war</li><li>Active nation</li></ul></li><li>Lowest value garrison.</li></ol></span></div>";
-const TOOLTIP_THREAT_L = "<div class=\"tooltip\"><i>threat</i><span class=\"tooltiptext\">A region which contains:<ul><li>An active nation Free Peoples’ army within 2 regions of an unconquered Shadow stronghold with a higher value than the Shadow garrison. Exclude Free Peoples’ garrisons; or</li><li>less than 4 hit points of Shadow units are in the Orthanc garrison with Saruman, and the Ent faction is in play or WoME is not in use and Gandalf the White is in play and a companion is in Fangorn.</li></ul></span></div>";
+const TOOLTIP_TARGET_L = "<div class=\"tooltip\"><i>target</i><span class=\"tooltiptext\">Order of priority when tied for distance:<ol><li>Conquered Shadow stronghold.</li><li>Free Peoples' army creating threat.</li><li>Stronghold not currently under siege by a mobile Shadow army:<ul><li>Nation at war</li><li>Active nation</li><li>Passive nation</li></ul></li><li>Unconquered Free Peoples' city:<ul><li>Nation at war</li><li>Active nation</li></ul></li><li>Lowest value garrison.</li></ol></span></div>";
+const TOOLTIP_THREAT_L = "<div class=\"tooltip\"><i>threat</i><span class=\"tooltiptext\">A region which contains:<ul><li>An active nation Free Peoples' army within 2 regions of an unconquered Shadow stronghold with a higher value than the Shadow garrison. Exclude Free Peoples' garrisons; or</li><li>less than 4 hit points of Shadow units are in the Orthanc garrison with Saruman, and the Ent faction is in play or WoME is not in use and Gandalf the White is in play and a companion is in Fangorn.</li></ul></span></div>";
 const TOOLTIP_VALUE_L = "<div class=\"tooltip\"><i>value</i><span class=\"tooltiptext\">Point rating of army calculated as:<ul><li>+1 for each hit point</li><li>+1 for each combat die including Captain of the West (capped at 5)</li><li>+1 for each point of leadership (capped at lower of 5 or total army units)</li><li>+1 for each Captain of the West</li><li>+1 for defending in a fortification or city region</li><li>x1.5 (rounded down) for defending in a stronghold<ul><li>Mobile and threat always use this even if no siege is occurring</li><li>HP multiplied for only the five strongest units in the region</li></ul></li><li>x0.5 for sorties (rounded down)</li><li>Exclude Saruman from value when calculating if an army is mobile</li></ul></span></div>";
 
 (function(storyContent) {
-
-    document.body.classList.add("switched");
-    document.body.classList.toggle("dark");
 
     // Create ink story from the content using inkjs
     var story = new inkjs.Story(storyContent);
 
     var savePoint = "";
+
+    var imageHeight = 0;
 
     let savedTheme;
     let globalTagTheme;
@@ -124,9 +123,11 @@ const TOOLTIP_VALUE_L = "<div class=\"tooltip\"><i>value</i><span class=\"toolti
                 // IMAGE: src
                 if( splitTag && splitTag.property == "IMAGE" ) {
                     var imageElement = document.createElement('img');
+                    imageElement.onload = function() {
+                        imageHeight = imageHeight + imageElement.height;
+                    };
                     imageElement.src = splitTag.val;
                     storyContainer.appendChild(imageElement);
-
                     showAfter(delay, imageElement);
                     delay += 200.0;
                 }
@@ -188,7 +189,8 @@ const TOOLTIP_VALUE_L = "<div class=\"tooltip\"><i>value</i><span class=\"toolti
             // Create paragraph with anchor element
             var choiceParagraphElement = document.createElement('button');
             choiceParagraphElement.classList.add("choice");
-            choiceParagraphElement.innerHTML = `<a href='#'>${choice.text}</a>`
+            choiceText = addToolTips(choice.text);
+            choiceParagraphElement.innerHTML = `<a href='#'>${choiceText}</a>`
             storyContainer.appendChild(choiceParagraphElement);
 
             // Fade choice in after a short delay
@@ -239,6 +241,20 @@ const TOOLTIP_VALUE_L = "<div class=\"tooltip\"><i>value</i><span class=\"toolti
         outerScrollContainer.scrollTo(0, 0);
     }
 
+    function undo() {
+
+        story.state.LoadJson(undoStep);
+
+        setVisible(".header", true);
+
+        // set save point to here
+        //savePoint = story.state.toJson();
+
+        //continueStory(true);
+
+        //outerScrollContainer.scrollTo(0, 0);
+    }
+
     // -----------------------------------
     // Various Helper functions
     // -----------------------------------
@@ -278,8 +294,12 @@ const TOOLTIP_VALUE_L = "<div class=\"tooltip\"><i>value</i><span class=\"toolti
     // The Y coordinate of the bottom end of all the story content, used
     // for growing the container, and deciding how far to scroll.
     function contentBottomEdgeY() {
+        console.debug("imageHeight: " + imageHeight);
         var bottomElement = storyContainer.lastElementChild;
-        return bottomElement ? bottomElement.offsetTop + bottomElement.offsetHeight : 0;
+		var imageOffset = imageHeight;
+		imageHeight = 0;
+		console.debug("imageOffset: " + imageOffset);
+        return bottomElement ? bottomElement.offsetTop + bottomElement.offsetHeight + imageOffset: 0;
     }
 
     // Remove all elements that match the given selector. Used for removing choices after
@@ -376,7 +396,7 @@ const TOOLTIP_VALUE_L = "<div class=\"tooltip\"><i>value</i><span class=\"toolti
             removeAll("button");
             removeAll("img");
             setVisible(".header", false);
-            restart();
+            undo();
         });
 		
         let saveEl = document.getElementById("save");

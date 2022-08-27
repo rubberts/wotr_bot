@@ -1,37 +1,36 @@
 ===phase_5_military===
 <b>Phase 5</b> # CLASS: w3-green
-<b>Shadow under threat_tooltip or Free People exposed_tooltip</b>? # CLASS: w3-yellow
+This symbol indicates a ring should be used where the condition is met and the required die in unavailable # CLASS: w3-green # IMAGE: elvenring3.png
+-> shadow_under_threat_military
+
+===shadow_under_threat_military===
+<b>Shadow under threat_tooltip or Free People exposed_tooltip</b>? # CLASS: w3-yellow  # IMAGE: elvenring3.png
 + [Yes] -> military_mobile_army_adjacent
 + [No] -> military_witch_king_in_play
 
 ===military_mobile_army_adjacent===
 Mobile_tooltip army adjacent to threat_tooltip? # CLASS: w3-blue
-+ [Yes] -> military_attack_character_die
++ [Yes] -> military_5a_attack_character_die
 + [No] -> military_move_create_mobile_army
 
 ===military_move_create_mobile_army===
 Move can create mobile_tooltip army adjacent to threat_tooltip? # CLASS: w3-blue
-+ [Yes] -> military_move_character_die
++ [Yes] -> military_5a_move_character_die
 + [No] -> military_move_increase_troops
 
 ===military_move_increase_troops===
 Move can increase troop numbers in the Stronghold under threat_tooltip? # CLASS: w3-blue
-+ [Yes] -> military_move_character_die
++ [Yes] -> military_5a_move_character_die
 + [No] -> military_mobile_army_route
 
 ===military_mobile_army_route===
 Mobile_tooltip army's route to closest target_tooltip takes it towards threat_tooltip? # CLASS: w3-blue
-+ [Yes] -> military_move_character_die
++ [Yes] -> military_5a_move_character_die
 + [No] -> military_move_towards_exposed
-
-===military_move_character_die===
-Move using character die # CLASS: w3-pink
-~ return_knot = -> military_stronghold_under_threat
-+ [Done] -> army
 
 ===military_move_towards_exposed===
 Can move towards exposed_tooltip? # CLASS: w3-blue
-+ [Yes] -> military_move_character_die
++ [Yes] -> military_5a_move_character_die
 + [No] -> military_stronghold_under_threat
 
 ===military_stronghold_under_threat===

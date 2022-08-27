@@ -85,8 +85,8 @@ Gather all Nazgul prior to placement # CLASS: w3-purple
 7. Target_tooltip nation is active # CLASS: w3-purple
 8. Army becomes mobile_tooltip with Nazgul # CLASS: w3-purple
 9. Not seiging # CLASS: w3-purple
-8. Adjacent to target_tooltip # CLASS: w3-purple
-9. Highest value Shadow army # CLASS: w3-purple
+10. Adjacent to target_tooltip # CLASS: w3-purple
+11. Highest value Shadow army # CLASS: w3-purple
 + [Done] -> move_character
 
 ===move_character===

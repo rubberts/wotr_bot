@@ -1,11 +1,11 @@
 ===military_witch_king_in_play===
-<b>Witch King is in play and not in a mobile_tooltip army</b>? # CLASS: w3-yellow
+<b>Witch King is in play and not in a mobile_tooltip army</b>? # CLASS: w3-yellow # IMAGE: elvenring3.png
 ~ return_knot = -> conditions_to_muster
 + [Yes] -> character_2
 + [No] -> conditions_to_muster
 
 ===conditions_to_muster===
-<b>Conditions to muster a minion met</b> or # CLASS: w3-yellow
+<b>Conditions to muster a minion met</b> or # CLASS: w3-yellow # IMAGE: elvenring3.png
 Southrons & Easterlings not at war or # CLASS: w3-yellow
 no faction recruited? # CLASS: w3-yellow
 ~ return_knot = -> character_cards_over_zero_military
@@ -13,22 +13,22 @@ no faction recruited? # CLASS: w3-yellow
 + [No] -> character_cards_over_zero_military
 
 ===character_cards_over_zero_military===
-<b>Character cards > 0 and Fellowship on Mordor track or revealed</b>? # CLASS: w3-yellow
+<b>Character cards > 0 and Fellowship on Mordor track or revealed</b>? # CLASS: w3-yellow  # IMAGE: elvenring3.png
 + [Yes] -> holding_fellowship_revealed
 + [No] -> mobile_army_adjacent_military
 
 ===holding_fellowship_revealed===
 Holding a Fellowship revealed character card? # CLASS: w3-blue
-+ [Yes] -> play_card_character_die
++ [Yes] -> military_5b_play_card_character_die
 + [No] -> mobile_army_adjacent_military
 
 ===mobile_army_adjacent_military===
-<b>Mobile_tooltip army adjacent to target_tooltip or an army which is blocking the route to <i>target<i></b>? # CLASS: w3-yellow
+<b>Mobile_tooltip army adjacent to target_tooltip or an army which is blocking the route to <i>target<i></b>? # CLASS: w3-yellow # IMAGE: elvenring3.png
 + [Yes] -> any_condition_true
 + [No] -> playable_muster_strategy
 
 ===any_condition_true===
-<b>ANY condition true:</b> # CLASS: w3-blue
+<b>ANY condition true:</b> # CLASS: w3-blue # IMAGE: elvenring3.png
 Target_tooltip provides enough victory points to win # CLASS: w3-blue
 Target_tooltip is in a nation at war and not under siege # CLASS: w3-blue
 Fellowship is in Mordor? # CLASS: w3-blue
@@ -41,16 +41,10 @@ Fellowship is in Mordor? # CLASS: w3-blue
 -> army_4
 
 ===playable_muster_strategy===
-<b>Playable muster strategy cards > 0</b>? # CLASS: w3-yellow
-~ return_knot = -> pass
+Playable muster strategy cards > 0? # CLASS: w3-yellow
+~ return_knot = -> military_5b_pass_possible
 + [Yes] -> muster_3
-+ [No] -> pass
-
-===pass===
-Pass # CLASS: w3-pink
-TODO: Implement Warrior of Middle Earth
-~ return_knot = -> mobile_army_adjacent_target_military
--> event
++ [No] -> military_5b_pass_possible
 
 ===mobile_army_adjacent_target_military===
 Mobile_tooltip army adjacent to target_tooltip # CLASS: w3-yellow
@@ -70,16 +64,11 @@ Mobile_tooltip army adjacent to target_tooltip # CLASS: w3-yellow
 ===character_sequence_military===
 ~ return_knot = -> muster_sequence_military
 -> character
-
 TODO: Implement Warrior of Middle Earth
 
 ===muster_sequence_military===
-~ return_knot = -> discard_unplayable_die
+~ return_knot = -> common_5b_discard_unplayable
 -> muster
 TODO: Implement Warrior of Middle Earth
 
-===discard_unplayable_die===
-Discard unplayable die # CLASS: w3-pink
 
-Use Muster die set aside for minion # CLASS: w3-pink
--> DONE

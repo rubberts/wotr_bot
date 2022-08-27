@@ -5,7 +5,11 @@ Recover action dice # CLASS: w3-orange
 + [Done] -> phase_1_corruption_2
 
 ===phase_1_corruption_2===
-Draw Event and Faction Event cards # CLASS: w3-orange
+Draw Event <> 
+{ warriors_of_middle_earth:
+    and Faction Event <>
+}
+cards # CLASS: w3-orange
 + [Done] -> phase_1_corruption_3
 
 ===phase_1_corruption_3===
@@ -67,19 +71,19 @@ Select first Fellowship state, starting from top: # CLASS: w3-yellow
 }
 
 ===phase_3_corruption_max===
-Assign maximum dice allowed to the hunt pool # CLASS: w3-orange
+Assign maximum dice allowed to the hunt pool # CLASS: w3-orange  # IMAGE: hunt_pool.png
 + [Done] -> phase_4_corruption
 
 ===phase_3_corruption_0===
-Assign 0 dice to the hunt pool # CLASS: w3-orange
+Assign 0 dice to the hunt pool # CLASS: w3-orange # IMAGE: hunt_pool.png
 + [Done] -> phase_4_corruption
 
 ===phase_3_corruption_1===
-Assign 1 die to the hunt pool # CLASS: w3-orange
+Assign 1 die to the hunt pool # CLASS: w3-orange # IMAGE: hunt_pool.png
 + [Done] -> phase_4_corruption
 
 ===phase_3_corruption_2===
-Assign 2 dice to the hunt pool # CLASS: w3-orange
+Assign 2 dice to the hunt pool # CLASS: w3-orange # IMAGE: hunt_pool.png
 + [Done] -> phase_4_corruption
 
 ===phase_4_corruption===

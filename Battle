@@ -86,7 +86,11 @@ Shadow is laying siege? # CLASS: w3-blue
 + [No] -> hold_over_four_event_cards
 
 ===hold_over_four_event_cards===
-Holding more than four event cards - excluding Faction Event cards? # CLASS: w3-blue
+Holding more than four Event cards<>
+{ warriors_of_middle_earth:
+    , excluding Faction Event cards<>
+}
+? # CLASS: w3-blue
 + [Yes] -> other_card_priority
 + [No] -> hold_call_to_battle_card
 

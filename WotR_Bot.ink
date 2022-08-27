@@ -1,3 +1,5 @@
+# theme: dark
+
 INCLUDE Corruption_1-4
 INCLUDE Corruption_5a
 INCLUDE Corruption_5b
@@ -19,7 +21,7 @@ VAR corruption_strategy = false
 <b>War of the Ring non-cheating bot for solo players</b>
 Plays as the Shadow in War of the Ring 2nd edition.
 Support for Warriors of Middle Earth expansion coming soon!
-<i>Based on Queller Bot By Quitch Version 3.0.1 - 2020-07-19</i>
+<i>Based on Queller Bot By Quitch Version 3.0.1 - 2020-07-19</i> 
 {corruption_strategy} # CLASS: w3-black
 { RANDOM(1, 2):
 - 1: # IMAGE: corruption_strategy.jpg
@@ -33,16 +35,16 @@ Support for Warriors of Middle Earth expansion coming soon!
 -> next_action_end_turn
 
 ===attack===
-<b>Attack</b> # CLASS: w3-pink
+<b>Attack</b> # CLASS: w3-pink # IMAGE: attack.jpg
 -> next_action_end_turn
 
 ===move===
-<b>Move</b> # CLASS: w3-pink
+<b>Move</b> # CLASS: w3-pink # IMAGE: move.webp
 + [Next Action] -> next_action
 -> next_action_end_turn
 
 ===move_nearest_army_towards_exposed===
-<b>Move nearest army towards <span class="tooltip">exposed_tooltip<span class="tooltiptext">An empty target that a Shadow army’s shortest path to is clear of enemy armies.</span></b> # CLASS: w3-pink
+<b>Move nearest army towards exposed_tooltip</b> # CLASS: w3-pink
 -> next_action_end_turn
 
 ===move_army_into_region===
@@ -66,7 +68,14 @@ Support for Warriors of Middle Earth expansion coming soon!
 -> next_action_end_turn
 
 ===draw_preferred_event_card===
-<b>Draw a preferred_tooltip Event card</b> # CLASS: w3-pink
+<b>Draw an Event card with <> # CLASS: w3-pink
+{ 
+- corruption_strategy:
+    a Character symbol # CLASS: w3-pink
+- else:
+    an Army or Muster symbol # CLASS: w3-pink
+}
+</b> # CLASS: w3-pink
 -> next_action_end_turn
 
 ===play_event_faction_card===
@@ -78,7 +87,7 @@ Support for Warriors of Middle Earth expansion coming soon!
 -> next_action_end_turn
 
 ===draw_character_event_card===
-<b>Draw a character Event card</b> # CLASS: w3-pink
+<b>Draw a Character Event card</b> # CLASS: w3-pink # IMAGE: SACC.jpg
 -> next_action_end_turn
 
 ===retreat_into_stronghold===
@@ -97,39 +106,68 @@ Support for Warriors of Middle Earth expansion coming soon!
 <b>End</b> # CLASS: w3-pink
 -> next_action_end_turn
 
-===use_muster_die_set_aside===
-<b>Use Muster die set aside for minion</b> # CLASS: w3-pink
--> next_action_end_turn
-
-===play_card_character_die===
+===military_5b_play_card_character_die===
 <b>Play card using character die</b> # CLASS: w3-pink # IMAGE: ADSAcharacter.png
 + [Done] -> next_action_end_turn
-+ [No Character Die] -> play_card_event_die
++ [No Character Die] -> military_5b_play_card_event_die
 
-===play_card_event_die===
+===military_5b_play_card_event_die===
 <b>Play card using using event die</b> # CLASS: w3-pink # IMAGE: ADSAevent.png
 + [Done] -> next_action_end_turn
 + [No Event Die] -> mobile_army_adjacent_military
 
-===military_attack_character_die===
+===military_5a_attack_character_die===
 <b>Attack using character die</b> # CLASS: w3-pink # IMAGE: ADSAcharacter.png
 + [Done] -> next_action_end_turn
-+ [No Character Die] -> military_attack_army_die
++ [No Character Die] -> military_5a_attack_army_die
 
-===military_attack_army_die===
+===military_5a_attack_army_die===
 <b>Attack using army die</b> # CLASS: w3-pink # IMAGE: ADSAevent.png
 + [Done] -> next_action_end_turn
 + [No Army Die] -> military_move_create_mobile_army
 
-===attack_character_die===
+===military_5a_move_character_die===
+Move using character die # CLASS: w3-pink
+~ return_knot = -> military_stronghold_under_threat
++ [Done] -> next_action_end_turn
++ [No Character Die] -> army
+
+===corruption_5a_attack_character_die===
 Attack using character die # CLASS: w3-pink  # IMAGE: ADSAcharacter.png
 + [Done] -> next_action_end_turn
-+ [No Character Die] -> attack_army_die
++ [No Character Die] -> corruption_5a_attack_army_die
 
-===attack_army_die===
+===corruption_5a_attack_army_die===
 Attack using army die # CLASS: w3-pink  # IMAGE: ADSAarmy.png
 + [Done] -> next_action_end_turn
 + [No Army Die] -> move_create_mobile_army
+
+===corruption_5a_move_character_die===
+Move using character die # CLASS: w3-pink # IMAGE: ADSAcharacter.png
+~ return_knot = -> stronghold_under_threat
++ [Done] -> next_action
++ [Not Possible] -> army
+
+===corruption_5b_pass_possible===
+Pass # CLASS: w3-pink
++ [Done] -> next_action
++ [Not Possible] -> playable_character_cards
+
+===common_5b_discard_unplayable===
+Discard unplayable dice # CLASS: w3-pink
++ [Done] -> next_action
++ [Not Possible] -> common_5b_use_muster_die_set_aside
+
+===common_5b_use_muster_die_set_aside===
+<b>Use Muster die set aside for minion</b> # CLASS: w3-pink # IMAGE: ADSAmuster.png
+-> next_action_end_turn
+
+===military_5b_pass_possible===
+Pass # CLASS: w3-pink
+TODO: Implement Warrior of Middle Earth
+~ return_knot = -> mobile_army_adjacent_target_military
++ [Done] -> next_action
++ [Not Possible] -> event
 
 ===next_action_end_turn===
 + [Next Action] -> next_action
@@ -138,9 +176,9 @@ Attack using army die # CLASS: w3-pink  # IMAGE: ADSAarmy.png
 ===next_action===
 { 
 - corruption_strategy:
-    -> shadow_under_threat
+    -> shadow_under_threat_corruption
 - else:
-    -> phase_5_military 
+    -> shadow_under_threat_military
 }
 
 ===end_gameturn===

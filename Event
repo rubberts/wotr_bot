@@ -1,55 +1,95 @@
 ===event===
 <b>Event</b>  # CLASS: w3-green
+Holding a card with a playable <> # CLASS: w3-yellow
 { 
 - corruption_strategy:
-    Holding a card with a character symbol? # CLASS: w3-yellow
+    Character symbol? # CLASS: w3-yellow
 - else:
-    Holding a card with an army or muster symbol? # CLASS: w3-yellow
+    Army or Muster symbol? # CLASS: w3-yellow
 }
 + [Yes] -> event_priority_1
 + [No] -> event_using_event_die
 
 ===event_using_event_die===
-Using an Event die? # CLASS: w3-yellow
+Using an Event die? # CLASS: w3-yellow  # IMAGE: ADSAevent.png
 + [Yes] -> event_holding_event_cards
 + [No] -> return_knot
 
 ===event_holding_event_cards===
-Holding less than 4 Event cards - excluding Faction Event cards? # CLASS: w3-blue
+Holding less than 4 Event cards<>
+{ warriors_of_middle_earth:
+    , excluding Faction Event cards<>
+}
+? # CLASS: w3-blue
 + [Yes] -> draw_preferred_event_card
  TODO: implement Warriors of Middle Earth
 + [No] -> event_holding_playable_event
 
 ===event_holding_playable_event===
-Holding a playable Event or Faction Event card? # CLASS: w3-blue
+Holding a playable Event <>
+{ warriors_of_middle_earth:
+    or Faction Event <>
+}
+card? # CLASS: w3-blue
 + [Yes] -> event_priority_1
 + [No] -> event_draw_event_card
 
 ===event_draw_event_card===
+Draw a card with <>
 { 
 - corruption_strategy:
-    Draw a card with a character symbol. # CLASS: w3-yellow
+    a Character symbol. # CLASS: w3-yellow
 - else:
-    Draw a card with an army or muster symbol. # CLASS: w3-yellow
+    an Army or Muster symbol. # CLASS: w3-yellow
 }
 Above full_hand_tooltip? # CLASS: w3-blue
 + [Yes] -> event_priority_3
 + [No] -> end_action
 
 ===event_priority_1===
-<b>Preferred_tooltip card play priority:</b> # CLASS: w3-purple
+<b>Event <>
+{ warriors_of_middle_earth:
+    or Faction Event <>
+}
+card play priority:</b> # CLASS: w3-purple
 1. Full_hand_tooltip # CLASS: w3-purple
-2. Preferred_tooltip Event card # CLASS: w3-purple
-3. Preferred_tooltip Faction Event card # CLASS: w3-purple
+2. <>
+{ 
+- corruption_strategy:
+    Character symbol <>
+- else:
+    Army or Muster symbol <>
+}
+Event card # CLASS: w3-purple
+{ warriors_of_middle_earth:
+3. <>
+{ 
+- corruption_strategy:
+    Character symbol <>
+- else:
+    Army or Muster symbol <>
+}
+Faction Event card # CLASS: w3-purple
 4. Ascending order of initiative # CLASS: w3-purple
+- else:
+3. Ascending order of initiative # CLASS: w3-purple
+}
 + [Done] -> play_event_faction_card
 
 ===event_priority_2===
-<b>Event or Faction card play priority:</b> # CLASS: w3-purple
+<b>Event <>
+{ warriors_of_middle_earth:
+    or Faction Event <>
+}
+card play priority:</b> # CLASS: w3-purple
 1. Full_hand_tooltip # CLASS: w3-purple
 2. Event card # CLASS: w3-purple
+{ warriors_of_middle_earth:
 3. Faction Event card # CLASS: w3-purple
 4. Ascending order of initiative # CLASS: w3-purple
+- else:
+3. Ascending order of initiative # CLASS: w3-purple
+}
 + [Done] -> play_event_faction_card
 
 ===event_priority_3===
@@ -80,6 +120,10 @@ Holding a card which can add corruption to the Fellowship or adds a Hunt tile? #
 + [No] -> event_2_few_cards
 
 ===event_2_few_cards===
-Holding less than 4 Event cards - excluding Faction Event cards? # CLASS: w3-yellow
+Holding less than 4 Event cards<>
+{ warriors_of_middle_earth:
+    , excluding Faction Event cards<>
+}
+? # CLASS: w3-yellow
 + [Yes] -> draw_character_event_card
 + [No] -> return_knot
