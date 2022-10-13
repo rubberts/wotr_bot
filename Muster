@@ -52,8 +52,14 @@ A Shadow nation is not at war or no faction is in play? # CLASS: w3-yellow
 2. Faction # CLASS: w3-purple
 3. Sauron # CLASS: w3-purple
 4. Southrons and Easterlings # CLASS: w3-purple
-TODO: Implement Warriors of Middle Earth
-+ [Done] -> move_nation_down_one_on_political_track
++ [Done]
+{ warriors_of_middle_earth:
+ Faction was highest priority? # CLASS: w3-blue
+ + [Yes] -> recruit_faction
+ + [No] -> move_nation_down_one_on_political_track
+ - else:
+ -> move_nation_down_one_on_political_track
+}
 
 ===muster_playable_muster_card===
 Holding a playable muster card? # CLASS: w3-yellow
@@ -94,7 +100,7 @@ Muster possible in region containing a Shadow army? # CLASS: w3-blue
 1. Target_tooltip in nation at war # CLASS: w3-purple
 2. Target_tooltip in active nation # CLASS: w3-purple
 3. Mobile_tooltip army # CLASS: w3-purple
-4. Target_tooltip in passive nation # CLASS: w3-purple
+4. Target_tooltip in passive_tooltip nation # CLASS: w3-purple
 + [Done] -> less_six_nazgul
 
 ===less_six_nazgul===

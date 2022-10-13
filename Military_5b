@@ -23,7 +23,7 @@ Holding a Fellowship revealed character card? # CLASS: w3-blue
 + [No] -> mobile_army_adjacent_military
 
 ===mobile_army_adjacent_military===
-<b>Mobile_tooltip army adjacent to target_tooltip or an army which is blocking the route to <i>target<i></b>? # CLASS: w3-yellow # IMAGE: elvenring3.png
+<b>Mobile_tooltip army adjacent to target_tooltip or an army which is blocking the route to target_tooltip</b>? # CLASS: w3-yellow # IMAGE: elvenring3.png
 + [Yes] -> any_condition_true
 + [No] -> playable_muster_strategy
 
@@ -62,13 +62,25 @@ Mobile_tooltip army adjacent to target_tooltip # CLASS: w3-yellow
 -> army_3
 
 ===character_sequence_military===
-~ return_knot = -> muster_sequence_military
+{ warriors_of_middle_earth:
+ ~ return_knot = -> wome_military_recruit_faction_sequence
+ - else:
+ ~ return_knot = -> muster_sequence_military
+}
 -> character
-TODO: Implement Warrior of Middle Earth
+
+===wome_military_recruit_faction_sequence===
+~ return_knot = -> muster_sequence_military
+-> recruit_faction
 
 ===muster_sequence_military===
-~ return_knot = -> common_5b_discard_unplayable
+{ warriors_of_middle_earth:
+ ~ return_knot = -> wome_military_draw_faction_sequence
+ - else:
+ ~ return_knot = -> common_5b_discard_unplayable
+}
 -> muster
-TODO: Implement Warrior of Middle Earth
 
-
+===wome_military_draw_faction_sequence===
+~ return_knot = -> common_5b_discard_unplayable
+-> draw_faction_event

@@ -7,7 +7,8 @@ const TOOLTIP_PASSIVE = "<div class=\"tooltip\"><i>Passive</i><span class=\"tool
 const TOOLTIP_PRIMARY = "<div class=\"tooltip\"><i>Primary</i><span class=\"tooltiptext\">The muster region closest to the defined target or army.</span></div>";
 const TOOLTIP_SECONDARY = "<div class=\"tooltip\"><i>Secondary</i><span class=\"tooltiptext\">The muster region closest to the primary.</span></div>";
 const TOOLTIP_TARGET = "<div class=\"tooltip\"><i>Target</i><span class=\"tooltiptext\">Order of priority when tied for distance:<ol><li>Conquered Shadow stronghold.</li><li>Free Peoples' army creating threat.</li><li>Stronghold not currently under siege by a mobile Shadow army:<ul><li>Nation at war</li><li>Active nation</li><li>Passive nation</li></ul></li><li>Unconquered Free Peoples' city:<ul><li>Nation at war</li><li>Active nation</li></ul></li><li>Lowest value garrison.</li></ol></span></div>";
-const TOOLTIP_THREAT = "<div class=\"tooltip\"><i>Threat</i><span class=\"tooltiptext\">A region which contains:<ul><li>An active nation Free Peoples' army within 2 regions of an unconquered Shadow stronghold with a higher value than the Shadow garrison. Exclude Free Peoples' garrisons; or</li><li>less than 4 hit points of Shadow units are in the Orthanc garrison with Saruman, and the Ent faction is in play or WoME is not in use and Gandalf the White is in play and a companion is in Fangorn.</li></ul></span></div>";
+const TOOLTIP_THREAT = "<div class=\"tooltip\"><i>Threat</i><span class=\"tooltiptext\">A region which contains:<ul><li>An active nation Free Peoples' army within 2 regions of an unconquered Shadow stronghold with a higher value than the Shadow garrison. Exclude Free Peoples' garrisons; or</li><li>less than 4 hit points of Shadow units are in the Orthanc garrison with Saruman, and Gandalf the White is in play and a companion is in Fangorn.</li></ul></span></div>";
+const TOOLTIP_THREAT_WOME = "<div class=\"tooltip\"><i>Threat</i><span class=\"tooltiptext\">A region which contains:<ul><li>An active nation Free Peoples' army within 2 regions of an unconquered Shadow stronghold with a higher value than the Shadow garrison. Exclude Free Peoples' garrisons; or</li><li>less than 4 hit points of Shadow units are in the Orthanc garrison with Saruman, and the Ent faction is in play.</li></ul></span></div>";
 const TOOLTIP_VALUE = "<div class=\"tooltip\"><i>Value</i><span class=\"tooltiptext\">Point rating of army calculated as:<ul><li>+1 for each hit point</li><li>+1 for each combat die including Captain of the West (capped at 5)</li><li>+1 for each point of leadership (capped at lower of 5 or total army units)</li><li>+1 for each Captain of the West</li><li>+1 for defending in a fortification or city region</li><li>x1.5 (rounded down) for defending in a stronghold<ul><li>Mobile and threat always use this even if no siege is occurring</li><li>HP multiplied for only the five strongest units in the region</li></ul></li><li>x0.5 for sorties (rounded down)</li><li>Exclude Saruman from value when calculating if an army is mobile</li></ul></span></div>";
 
 const TOOLTIP_AGGRESSIVE_L = "<div class=\"tooltip\"><i>aggressive</i><span class=\"tooltiptext\"><ul><li>The army of an active nation whose value = opposing army value; or</li><li>an army which has hit the stacking limit and contains the Witch King or 5 leadership.</li></ul></span></div>";
@@ -19,7 +20,8 @@ const TOOLTIP_PASSIVE_L = "<div class=\"tooltip\"><i>passive</i><span class=\"to
 const TOOLTIP_PRIMARY_L = "<div class=\"tooltip\"><i>primary</i><span class=\"tooltiptext\">The muster region closest to the defined target or army.</span></div>";
 const TOOLTIP_SECONDARY_L = "<div class=\"tooltip\"><i>secondary</i><span class=\"tooltiptext\">The muster region closest to the primary.</span></div>";
 const TOOLTIP_TARGET_L = "<div class=\"tooltip\"><i>target</i><span class=\"tooltiptext\">Order of priority when tied for distance:<ol><li>Conquered Shadow stronghold.</li><li>Free Peoples' army creating threat.</li><li>Stronghold not currently under siege by a mobile Shadow army:<ul><li>Nation at war</li><li>Active nation</li><li>Passive nation</li></ul></li><li>Unconquered Free Peoples' city:<ul><li>Nation at war</li><li>Active nation</li></ul></li><li>Lowest value garrison.</li></ol></span></div>";
-const TOOLTIP_THREAT_L = "<div class=\"tooltip\"><i>threat</i><span class=\"tooltiptext\">A region which contains:<ul><li>An active nation Free Peoples' army within 2 regions of an unconquered Shadow stronghold with a higher value than the Shadow garrison. Exclude Free Peoples' garrisons; or</li><li>less than 4 hit points of Shadow units are in the Orthanc garrison with Saruman, and the Ent faction is in play or WoME is not in use and Gandalf the White is in play and a companion is in Fangorn.</li></ul></span></div>";
+const TOOLTIP_THREAT_L = "<div class=\"tooltip\"><i>threat</i><span class=\"tooltiptext\">A region which contains:<ul><li>An active nation Free Peoples' army within 2 regions of an unconquered Shadow stronghold with a higher value than the Shadow garrison. Exclude Free Peoples' garrisons; or</li><li>less than 4 hit points of Shadow units are in the Orthanc garrison with Saruman, and Gandalf the White is in play and a companion is in Fangorn.</li></ul></span></div>";
+const TOOLTIP_THREAT_WOME_L = "<div class=\"tooltip\"><i>threat</i><span class=\"tooltiptext\">A region which contains:<ul><li>An active nation Free Peoples' army within 2 regions of an unconquered Shadow stronghold with a higher value than the Shadow garrison. Exclude Free Peoples' garrisons; or</li><li>less than 4 hit points of Shadow units are in the Orthanc garrison with Saruman, and the Ent faction is in play.</li></ul></span></div>";
 const TOOLTIP_VALUE_L = "<div class=\"tooltip\"><i>value</i><span class=\"tooltiptext\">Point rating of army calculated as:<ul><li>+1 for each hit point</li><li>+1 for each combat die including Captain of the West (capped at 5)</li><li>+1 for each point of leadership (capped at lower of 5 or total army units)</li><li>+1 for each Captain of the West</li><li>+1 for defending in a fortification or city region</li><li>x1.5 (rounded down) for defending in a stronghold<ul><li>Mobile and threat always use this even if no siege is occurring</li><li>HP multiplied for only the five strongest units in the region</li></ul></li><li>x0.5 for sorties (rounded down)</li><li>Exclude Saruman from value when calculating if an army is mobile</li></ul></span></div>";
 
 (function(storyContent) {
@@ -28,8 +30,9 @@ const TOOLTIP_VALUE_L = "<div class=\"tooltip\"><i>value</i><span class=\"toolti
     var story = new inkjs.Story(storyContent);
 
     var savePoint = "";
+	var undoPoint = "";
 
-    var imageHeight = 0;
+	var warriorsMiddleEarth = false;
 
     let savedTheme;
     let globalTagTheme;
@@ -67,6 +70,7 @@ const TOOLTIP_VALUE_L = "<div class=\"tooltip\"><i>value</i><span class=\"toolti
 
     // Set initial save point
     savePoint = story.state.toJson();
+	//console.debug(savePoint);
 
     // Kick off the start of the story!
     continueStory(true);
@@ -124,10 +128,13 @@ const TOOLTIP_VALUE_L = "<div class=\"tooltip\"><i>value</i><span class=\"toolti
                 if( splitTag && splitTag.property == "IMAGE" ) {
                     var imageElement = document.createElement('img');
                     imageElement.onload = function() {
-                        imageHeight = imageHeight + imageElement.height;
+                      storyContainer.style.height = contentBottomEdgeY()+"px";
+                      if( !firstTime )
+                          scrollDown(previousBottomEdge);
                     };
                     imageElement.src = splitTag.val;
                     storyContainer.appendChild(imageElement);
+
                     showAfter(delay, imageElement);
                     delay += 200.0;
                 }
@@ -181,6 +188,8 @@ const TOOLTIP_VALUE_L = "<div class=\"tooltip\"><i>value</i><span class=\"toolti
             // Fade in paragraph after a short delay
             showAfter(delay, paragraphElement);
             delay += 200.0;
+			
+			console.debug(removeToolTips(paragraphText));
         }
 
         // Create HTML choices from ink choices
@@ -212,6 +221,8 @@ const TOOLTIP_VALUE_L = "<div class=\"tooltip\"><i>value</i><span class=\"toolti
 
                 // This is where the save button will save from
                 savePoint = story.state.toJson();
+				//console.debug(savePoint);
+				console.debug("Selected: " + removeToolTips(choiceParagraphElement.innerText));
 
                 // Aaand loop
                 continueStory();
@@ -230,12 +241,13 @@ const TOOLTIP_VALUE_L = "<div class=\"tooltip\"><i>value</i><span class=\"toolti
 
     function restart() {
         story.ResetState();
+		story.variablesState["warriors_of_middle_earth"] = document.getElementById("wome-switch").checked;
 
         setVisible(".header", true);
 
         // set save point to here
         savePoint = story.state.toJson();
-
+		//console.debug(savePoint);
         continueStory(true);
 
         outerScrollContainer.scrollTo(0, 0);
@@ -294,12 +306,8 @@ const TOOLTIP_VALUE_L = "<div class=\"tooltip\"><i>value</i><span class=\"toolti
     // The Y coordinate of the bottom end of all the story content, used
     // for growing the container, and deciding how far to scroll.
     function contentBottomEdgeY() {
-        console.debug("imageHeight: " + imageHeight);
         var bottomElement = storyContainer.lastElementChild;
-		var imageOffset = imageHeight;
-		imageHeight = 0;
-		console.debug("imageOffset: " + imageOffset);
-        return bottomElement ? bottomElement.offsetTop + bottomElement.offsetHeight + imageOffset: 0;
+        return bottomElement ? bottomElement.offsetTop + bottomElement.offsetHeight : 0;
     }
 
     // Remove all elements that match the given selector. Used for removing choices after
@@ -341,6 +349,21 @@ const TOOLTIP_VALUE_L = "<div class=\"tooltip\"><i>value</i><span class=\"toolti
         }
 
         return null;
+    }
+
+    // Loads save state if exists in the browser memory
+    function loadUndoPoint() {
+
+        try {
+            let undoState = window.localStorage.getItem('undo-state');
+            if (undoState) {
+                story.state.LoadJson(undoState);
+                return true;
+            }
+        } catch (e) {
+            console.debug("Couldn't load undo state");
+        }
+        return false;
     }
 
     // Loads save state if exists in the browser memory
@@ -390,13 +413,15 @@ const TOOLTIP_VALUE_L = "<div class=\"tooltip\"><i>value</i><span class=\"toolti
             restart();
         });
 
-		let undoEl = document.getElementById("undo");
+        let undoEl = document.getElementById("undo");
         if (undoEl) undoEl.addEventListener("click", function(event) {
-            removeAll("p");
-            removeAll("button");
-            removeAll("img");
-            setVisible(".header", false);
-            undo();
+            try {
+                window.localStorage.setItem('undo-state', undoPoint);
+                document.getElementById("reload").removeAttribute("disabled");
+                window.localStorage.setItem('theme', document.body.classList.contains("dark") ? "dark" : "");
+            } catch (e) {
+                console.warn("Couldn't undo step");
+            }
         });
 		
         let saveEl = document.getElementById("save");
@@ -408,7 +433,6 @@ const TOOLTIP_VALUE_L = "<div class=\"tooltip\"><i>value</i><span class=\"toolti
             } catch (e) {
                 console.warn("Couldn't save state");
             }
-
         });
 
         let reloadEl = document.getElementById("reload");
@@ -430,40 +454,77 @@ const TOOLTIP_VALUE_L = "<div class=\"tooltip\"><i>value</i><span class=\"toolti
             }
             continueStory(true);
         });
-
-        let themeSwitchEl = document.getElementById("theme-switch");
-        if (themeSwitchEl) themeSwitchEl.addEventListener("click", function(event) {
-            document.body.classList.add("switched");
-            document.body.classList.toggle("dark");
+		
+		let wome = document.getElementById("wome-switch");
+        if (wome) wome.addEventListener("click", function(event) {
+			story.variablesState["warriors_of_middle_earth"] = wome.checked;
+			console.debug("Warriors of Middle Earth state: " + story.variablesState["warriors_of_middle_earth"]);
+			warriorsMiddleEarth = wome.checked;
         });
     }
 
-})(storyContent);
+	function addToolTips(findText) {
+		//Uppercase
+		findText = findText.replaceAll("Aggressive_tooltip", TOOLTIP_AGGRESSIVE);
+		findText = findText.replaceAll("Exposed_tooltip", TOOLTIP_EXPOSED);
+		findText = findText.replaceAll("Full_hand_tooltip", TOOLTIP_FULL_HAND);
+		findText = findText.replaceAll("Garrison_tooltip", TOOLTIP_GARRISON);
+		findText = findText.replaceAll("Mobile_tooltip", TOOLTIP_MOBILE);
+		findText = findText.replaceAll("Passive_tooltip", TOOLTIP_PASSIVE);
+		findText = findText.replaceAll("Primary_tooltip", TOOLTIP_PRIMARY);
+		findText = findText.replaceAll("Secondary_tooltip", TOOLTIP_SECONDARY);
+		findText = findText.replaceAll("Target_tooltip", TOOLTIP_TARGET);
+		if (warriorsMiddleEarth) {
+		  findText = findText.replaceAll("Threat_tooltip", TOOLTIP_THREAT_WOME);
+		} else {
+		  findText = findText.replaceAll("Threat_tooltip", TOOLTIP_THREAT);	
+		}
+		findText = findText.replaceAll("Value_tooltip", TOOLTIP_VALUE);
+		//Lowercase
+		findText = findText.replaceAll("aggressive_tooltip", TOOLTIP_AGGRESSIVE_L);
+		findText = findText.replaceAll("exposed_tooltip", TOOLTIP_EXPOSED_L);
+		findText = findText.replaceAll("full_hand_tooltip", TOOLTIP_FULL_HAND_L);
+		findText = findText.replaceAll("garrison_tooltip", TOOLTIP_GARRISON_L);
+		findText = findText.replaceAll("mobile_tooltip", TOOLTIP_MOBILE_L);
+		findText = findText.replaceAll("passive_tooltip", TOOLTIP_PASSIVE_L);
+		findText = findText.replaceAll("primary_tooltip", TOOLTIP_PRIMARY_L);
+		findText = findText.replaceAll("secondary_tooltip", TOOLTIP_SECONDARY_L);
+		findText = findText.replaceAll("target_tooltip", TOOLTIP_TARGET_L);
+		if (warriorsMiddleEarth) {
+		  findText = findText.replaceAll("threat_tooltip", TOOLTIP_THREAT_WOME_L);
+		} else {
+		  findText = findText.replaceAll("threat_tooltip", TOOLTIP_THREAT_L);	
+		}
+		findText = findText.replaceAll("value_tooltip", TOOLTIP_VALUE_L);
+		return findText;
+	}
 
-function addToolTips(findText) {
-    //Uppercase
-    findText = findText.replace("Aggressive_tooltip", TOOLTIP_AGGRESSIVE);
-    findText = findText.replace("Exposed_tooltip", TOOLTIP_EXPOSED);
-    findText = findText.replace("Full_hand_tooltip", TOOLTIP_FULL_HAND);
-    findText = findText.replace("Garrison_tooltip", TOOLTIP_GARRISON);
-    findText = findText.replace("Mobile_tooltip", TOOLTIP_MOBILE);
-    findText = findText.replace("Passive_tooltip", TOOLTIP_PASSIVE);
-    findText = findText.replace("Primary_tooltip", TOOLTIP_PRIMARY);
-    findText = findText.replace("Secondary_tooltip", TOOLTIP_SECONDARY);
-    findText = findText.replace("Target_tooltip", TOOLTIP_TARGET);
-    findText = findText.replace("Threat_tooltip", TOOLTIP_THREAT);
-    findText = findText.replace("Value_tooltip", TOOLTIP_VALUE);
-    //Lowercase
-    findText = findText.replace("aggressive_tooltip", TOOLTIP_AGGRESSIVE_L);
-    findText = findText.replace("exposed_tooltip", TOOLTIP_EXPOSED_L);
-    findText = findText.replace("full_hand_tooltip", TOOLTIP_FULL_HAND_L);
-    findText = findText.replace("garrison_tooltip", TOOLTIP_GARRISON_L);
-    findText = findText.replace("mobile_tooltip", TOOLTIP_MOBILE_L);
-    findText = findText.replace("passive_tooltip", TOOLTIP_PASSIVE_L);
-    findText = findText.replace("primary_tooltip", TOOLTIP_PRIMARY_L);
-    findText = findText.replace("secondary_tooltip", TOOLTIP_SECONDARY_L);
-    findText = findText.replace("target_tooltip", TOOLTIP_TARGET_L);
-    findText = findText.replace("threat_tooltip", TOOLTIP_THREAT_L);
-    findText = findText.replace("value_tooltip", TOOLTIP_VALUE_L);
-    return findText;
-}
+	function removeToolTips(findText) {
+		//Uppercase
+		findText = findText.replaceAll(TOOLTIP_AGGRESSIVE, "Aggressive");
+		findText = findText.replaceAll(TOOLTIP_EXPOSED, "Exposed");
+		findText = findText.replaceAll(TOOLTIP_FULL_HAND, "Full_hand");
+		findText = findText.replaceAll(TOOLTIP_GARRISON, "Garrison");
+		findText = findText.replaceAll(TOOLTIP_MOBILE, "Mobile");
+		findText = findText.replaceAll(TOOLTIP_PASSIVE, "Passive");
+		findText = findText.replaceAll(TOOLTIP_PRIMARY, "Primary");
+		findText = findText.replaceAll(TOOLTIP_SECONDARY, "Secondary");
+		findText = findText.replaceAll(TOOLTIP_TARGET, "Target");
+		findText = findText.replaceAll(TOOLTIP_THREAT, "Threat");
+		findText = findText.replaceAll(TOOLTIP_VALUE, "Value");
+		//Lowercase
+		findText = findText.replaceAll(TOOLTIP_AGGRESSIVE_L, "aggressive");
+		findText = findText.replaceAll(TOOLTIP_EXPOSED_L, "exposed");
+		findText = findText.replaceAll(TOOLTIP_FULL_HAND_L, "full_hand");
+		findText = findText.replaceAll(TOOLTIP_GARRISON_L, "garrison");
+		findText = findText.replaceAll(TOOLTIP_MOBILE_L, "mobile");
+		findText = findText.replaceAll(TOOLTIP_PASSIVE_L, "passive");
+		findText = findText.replaceAll(TOOLTIP_PRIMARY_L, "primary");
+		findText = findText.replaceAll(TOOLTIP_SECONDARY_L, "secondary");
+		findText = findText.replaceAll(TOOLTIP_TARGET_L, "target");
+		findText = findText.replaceAll(TOOLTIP_THREAT_L, "threat");
+		findText = findText.replaceAll(TOOLTIP_VALUE_L, "value");
+		return findText;
+	}
+
+})(storyContent);

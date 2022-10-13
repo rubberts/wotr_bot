@@ -1,2 +1,103 @@
-TODO: Implement Warriors of Middle Earth
-//<span class="tooltip"><i>Garrison</i><span class="tooltiptext">An army inside a stronghold or in a stronghold region.</span>
+===play_faction_event===
+<b>Play Faction Event</b> # CLASS: w3-green
+Holding playable Faction Event card? # CLASS: w3-yellow
++ [Yes] -> play_faction_event_priority
++ [No] -> black_sails
+
+===play_faction_event_priority===
+<b>Priority of Faction Event card to play:</b> # CLASS: w3-purple
+1. Preferred card # CLASS: w3-purple
+2. Mobile_tooltip army attacks target_tooltip # CLASS: w3-purple
+3. Moves mobile_tooltip army # CLASS: w3-purple
+4. Muster # CLASS: w3-purple
++ [Done] -> warriors_play_faction_event_card
+
+===draw_faction_event===
+<b>Draw Faction Event</b> # CLASS: w3-green
+-> black_sails
+
+===black_sails===
+Black Sails on table and Corsairs in players? # CLASS: w3-yellow
++ [Yes] -> corsairs_move_seige
++ [No] -> using_play_faction_event_die
+
+===corsairs_move_seige===
+One of more Corsairs could move to a siege? # CLASS: w3-blue
++ [Yes] -> move_priority
++ [No] -> using_play_faction_event_die
+
+===move_priority===
+<b>Priority of which unit to move:</b> # CLASS: w3-purple
+1. Siege # CLASS: w3-purple
+2. Highest value_tooltip army # CLASS: w3-purple
++ [Done] -> move
+
+===using_play_faction_event_die===
+Using Play Faction Event die? # CLASS: w3-yellow
++ [Yes] -> return_knot
++ [No] -> draw_faction_event_card
+
+===draw_faction_event_card===
+Draw a Faction Event card. # CLASS: w3-orange
++ [Done] -> full_hand_check
+
+===full_hand_check===
+Above full_hand_tooltip?  # CLASS: w3-yellow
++ [Yes] -> discard_priority
++ [No] -> ending
+
+===faction_event_discard===
+Faction Event card Discard # CLASS: w3-green
+-> discard_priority
+
+===discard_priority===
+<b>Priority of card to discard:</b> # CLASS: w3-purple
+1. No faction picture # CLASS: w3-purple
+2. Faction not in players # CLASS: w3-purple
+3. Not preferred card # CLASS: w3-purple
+4. Doesn't use the term "Fellowship revealed" # CLASS: w3-purple
+5. Doesn't place a tile # CLASS: w3-purple
++ [Done] -> discard
+
+===move_faction===
+Move Faction # CLASS: w3-green
+Faction figure in Fellowship region? # CLASS: w3-yellow
++ [Yes] -> destination_priority_1
++ [No] -> fellowship_stronghold
+
+===fellowship_stronghold===
+Fellowship in a stronghold or out to sea? # CLASS: w3-yellow
++ [Yes] -> destination_priority_2
++ [No] -> destination_priority_3
+
+===destination_priority_1===
+<b>Move Destination priority:</b> # CLASS: w3-purple
+1. Nearest mobile_tooltip army # CLASS: w3-purple
+2. Highest value_tooltip army # CLASS: w3-purple
++ [Done] -> move
+
+===destination_priority_2===
+<b>Move Destination priority:</b> # CLASS: w3-purple
+1. Fellowship progress region (nearest Faction figure only) # CLASS: w3-purple
+2. Nearest mobile_tooltip army # CLASS: w3-purple
+3. Highest value_tooltip army # CLASS: w3-purple
++ [Done] -> move
+
+===destination_priority_3===
+<b>Move Destination priority:</b> # CLASS: w3-purple
+1. Fellowship (nearest Faction figure only - two if one will be discarded) # CLASS: w3-purple
+2. Nearest mobile_tooltip army # CLASS: w3-purple
+3. Highest value_tooltip army # CLASS: w3-purple
++ [Done] -> move
+
+===recruit_faction===
+Recruit Faction # CLASS: w3-green
+<b>Priority of faction recruitment:</b> # CLASS: w3-purple
+1. Faction with most preferred Faction Event cards in hand and in play # CLASS: w3-purple
+2. Faction with most Faction Event cards in hand and in play # CLASS: w3-purple
++ [Done] -> eligible_faction
+
+===eligible_faction===
+Faction eligible to be brought into play? # CLASS: w3-yellow
++ [Yes] -> warriors_bring_faction_play
++ [No] -> warriors_muster_faction_figure

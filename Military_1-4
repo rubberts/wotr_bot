@@ -2,7 +2,7 @@
 ~ corruption_strategy = false
 <b>Phase 1</b> # CLASS: w3-green
 Recover action dice # CLASS: w3-orange
-+ [Done] -> phase_1_military_2
+-> phase_1_military_2
 
 ===phase_1_military_2===
 Draw Event <> 
@@ -15,23 +15,45 @@ cards # CLASS: w3-orange
 ===phase_1_military_3===
 More than 6 Event cards in hand? # CLASS: w3-yellow
 + [Yes] -> phase_1_military_discard
-+ [No] -> phase_2_military 
-TODO: Implement Warriors of Middle Earth
++ [No]
+{ warriors_of_middle_earth:
+ -> wome_phase_1_military_faction_event 
+ - else:
+ -> phase_2_military
+}
 
 ===phase_1_military_discard===
-Event card discard priority: # CLASS: w3-yellow
-1. Doesn't use the term "Fellowship Revealed" # CLASS: w3-yellow
-2. Character card # CLASS: w3-yellow
-3. Strategy card # CLASS: w3-yellow
-4. Descending order of priority # CLASS: w3-yellow
-5. Doesn't place a tile # CLASS: w3-yellow
+Event card discard priority: # CLASS: w3-orange
+1. Doesn't use the term "Fellowship Revealed" # CLASS: w3-orange
+2. Character card # CLASS: w3-orange
+3. Strategy card # CLASS: w3-orange
+4. Descending order of priority # CLASS: w3-orange
+5. Doesn't place a tile # CLASS: w3-orange
++ [Done]
+{ warriors_of_middle_earth:
+ -> wome_phase_1_military_faction_event
+ - else:
+ -> phase_2_military
+}
+
+===wome_phase_1_military_faction_event===
+More than 4 Faction Event cards in hand? # CLASS: w3-yellow
++ [Yes] -> wome_military_discard_priority
++ [No] -> phase_2_military
+
+===wome_military_discard_priority===
+priority of Faction Event cards to discard: # CLASS: w3-orange
+1. No faction picture # CLASS: w3-orange
+2. Faction not in play # CLASS: w3-orange
+3. Not a preferred card # CLASS: w3-orange
+4. Doesn't use the term "Fellowship revealed" # CLASS: w3-orange
+5. Doesn't place a tile # CLASS: w3-orange
 + [Done] -> phase_2_military
 
 ===phase_2_military===
 <b>Phase 2</b> # CLASS: w3-green
 Shadow victory points lower than Corruption points? # CLASS: w3-yellow
 + [Yes] -> phase_3_corruption # IMAGE: corruption_strategy.jpg
-
 + [No] -> phase_3_military
 
 ===phase_3_military===

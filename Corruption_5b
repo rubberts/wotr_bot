@@ -37,7 +37,7 @@ Mobile_tooltip army adjacent to target_tooltip? # CLASS: w3-yellow
 
 ===fellowship_on_mordor_track===
 <b>Fellowship on Mordor track or target_tooltip would win the game</b> or # CLASS: w3-blue # IMAGE: elvenring3.png
-target_tooltip not under siege and in a nation at War? # CLASS: w3-blue
+Target_tooltip not under siege and in a nation at War? # CLASS: w3-blue
 ~ return_knot = -> army_4_next
 + [Yes] -> character
 + [No] -> corruption_5b_pass_possible
@@ -60,8 +60,18 @@ Playable character cards available? # CLASS: w3-yellow
 Mobile_tooltip army adjacent to target_tooltip not under siege? # CLASS: w3-yellow
 ~ return_knot = -> army_2_next
 + [Yes] -> character
-TODO: Implement Warrior of Middle Earth
-+ [No] -> event_sequence
++ [No]
+{ warriors_of_middle_earth:
+ -> wome_all_factions_in_play 
+ - else:
+ -> event_sequence
+}
+
+===wome_all_factions_in_play===
+All factions in play? # CLASS: w3-yellow
+~ return_knot = -> event_sequence
++ [Yes] -> play_faction_event
++ [No] -> recruit_faction
 
 ===army_2_next===
 ~ return_knot = -> event_sequence
@@ -76,16 +86,28 @@ TODO: Implement Warrior of Middle Earth
 -> army_3
 
 ===character_sequence===
-~ return_knot = -> muster_sequence
+{ warriors_of_middle_earth:
+ ~ return_knot = -> wome_recruit_faction_sequence
+ - else:
+ ~ return_knot = -> muster_sequence
+}
 -> character
 
-TODO: Implement Warrior of Middle Earth
+===wome_recruit_faction_sequence===
+~ return_knot = -> muster_sequence
+-> recruit_faction
 
 ===muster_sequence===
-~ return_knot = -> phase_5_sequence
+{ warriors_of_middle_earth:
+ ~ return_knot = -> wome_draw_faction_sequence
+ - else:
+ ~ return_knot = -> phase_5_sequence
+}
 -> muster
 
-TODO: Implement Warrior of Middle Earth
+===wome_draw_faction_sequence===
+~ return_knot = -> phase_5_sequence
+-> draw_faction_event
 
 ===phase_5_sequence===
 ~ return_knot = -> common_5b_discard_unplayable

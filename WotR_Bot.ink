@@ -19,10 +19,11 @@ VAR return_knot = -> phase_1_corruption
 VAR corruption_strategy = false
 
 <b>War of the Ring non-cheating bot for solo players</b>
-Plays as the Shadow in War of the Ring 2nd edition.
-Support for Warriors of Middle Earth expansion coming soon!
+Plays as the Shadow in War of the Ring 2nd edition and supports the Warriors of Middle Earth expansion.
+
 <i>Based on Queller Bot By Quitch Version 3.0.1 - 2020-07-19</i> 
 {corruption_strategy} # CLASS: w3-black
+//-> corruption_muster_minion
 { RANDOM(1, 2):
 - 1: # IMAGE: corruption_strategy.jpg
     -> phase_1_corruption 
@@ -39,24 +40,24 @@ Support for Warriors of Middle Earth expansion coming soon!
 -> next_action_end_turn
 
 ===move===
-<b>Move</b> # CLASS: w3-pink # IMAGE: move.webp
+<b>Move</b> # CLASS: w3-pink # IMAGE: move.png
 + [Next Action] -> next_action
 -> next_action_end_turn
 
 ===move_nearest_army_towards_exposed===
-<b>Move nearest army towards exposed_tooltip</b> # CLASS: w3-pink
+<b>Move nearest army towards exposed_tooltip</b> # CLASS: w3-pink # IMAGE: move.png
 -> next_action_end_turn
 
 ===move_army_into_region===
-<b>Move army into region</b> # CLASS: w3-pink
+<b>Move army into region</b> # CLASS: w3-pink # IMAGE: move.png
 -> next_action_end_turn
 
 ===move_unit_into_region===
-<b>Move 1 unit into region</b> # CLASS: w3-pink
+<b>Move 1 unit into region</b> # CLASS: w3-pink # IMAGE: move.png
 -> next_action_end_turn
 
 ===move_attack===
-<b>Move/Attack</b> # CLASS: w3-pink
+<b>Move/Attack</b> # CLASS: w3-pink 
 -> next_action_end_turn
 
 ===muster_action===
@@ -79,7 +80,11 @@ Support for Warriors of Middle Earth expansion coming soon!
 -> next_action_end_turn
 
 ===play_event_faction_card===
-<b>Play Event/Faction Event card</b> # CLASS: w3-pink
+<b>Play Event <>
+{ warriors_of_middle_earth:
+    or Faction Event <>
+}
+card</b> # CLASS: w3-pink
 -> next_action_end_turn
 
 ===discard===
@@ -106,32 +111,6 @@ Support for Warriors of Middle Earth expansion coming soon!
 <b>End</b> # CLASS: w3-pink
 -> next_action_end_turn
 
-===military_5b_play_card_character_die===
-<b>Play card using character die</b> # CLASS: w3-pink # IMAGE: ADSAcharacter.png
-+ [Done] -> next_action_end_turn
-+ [No Character Die] -> military_5b_play_card_event_die
-
-===military_5b_play_card_event_die===
-<b>Play card using using event die</b> # CLASS: w3-pink # IMAGE: ADSAevent.png
-+ [Done] -> next_action_end_turn
-+ [No Event Die] -> mobile_army_adjacent_military
-
-===military_5a_attack_character_die===
-<b>Attack using character die</b> # CLASS: w3-pink # IMAGE: ADSAcharacter.png
-+ [Done] -> next_action_end_turn
-+ [No Character Die] -> military_5a_attack_army_die
-
-===military_5a_attack_army_die===
-<b>Attack using army die</b> # CLASS: w3-pink # IMAGE: ADSAevent.png
-+ [Done] -> next_action_end_turn
-+ [No Army Die] -> military_move_create_mobile_army
-
-===military_5a_move_character_die===
-Move using character die # CLASS: w3-pink
-~ return_knot = -> military_stronghold_under_threat
-+ [Done] -> next_action_end_turn
-+ [No Character Die] -> army
-
 ===corruption_5a_attack_character_die===
 Attack using character die # CLASS: w3-pink  # IMAGE: ADSAcharacter.png
 + [Done] -> next_action_end_turn
@@ -153,6 +132,51 @@ Pass # CLASS: w3-pink
 + [Done] -> next_action
 + [Not Possible] -> playable_character_cards
 
+===military_5a_attack_character_die===
+<b>Attack using character die</b> # CLASS: w3-pink # IMAGE: ADSAcharacter.png
++ [Done] -> next_action_end_turn
++ [No Character Die] -> military_5a_attack_army_die
+
+===military_5a_attack_army_die===
+<b>Attack using army die</b> # CLASS: w3-pink # IMAGE: ADSAevent.png
++ [Done] -> next_action_end_turn
++ [No Army Die] -> military_move_create_mobile_army
+
+===military_5a_move_character_die===
+Move using character die # CLASS: w3-pink
+~ return_knot = -> military_stronghold_under_threat
++ [Done] -> next_action_end_turn
++ [No Character Die] -> army
+
+===military_5b_play_card_character_die===
+<b>Play card using character die</b> # CLASS: w3-pink # IMAGE: ADSAcharacter.png
++ [Done] -> next_action_end_turn
++ [No Character Die] -> military_5b_play_card_event_die
+
+===military_5b_play_card_event_die===
+<b>Play card using using event die</b> # CLASS: w3-pink # IMAGE: ADSAevent.png
++ [Done] -> next_action_end_turn
++ [No Event Die] -> mobile_army_adjacent_military
+
+===military_5b_pass_possible===
+Pass # CLASS: w3-pink
+{ warriors_of_middle_earth:
+ ~ return_knot = -> military_5b_pass_possible_event
+ - else:
+ ~ return_knot = -> mobile_army_adjacent_target_military
+}
++ [Done] -> next_action
++ [Not Possible]
+{ warriors_of_middle_earth:
+ -> play_faction_event
+ - else:
+ -> event
+}
+
+===military_5b_pass_possible_event===
+~ return_knot = -> mobile_army_adjacent_target_military
+ -> event
+
 ===common_5b_discard_unplayable===
 Discard unplayable dice # CLASS: w3-pink
 + [Done] -> next_action
@@ -162,12 +186,21 @@ Discard unplayable dice # CLASS: w3-pink
 <b>Use Muster die set aside for minion</b> # CLASS: w3-pink # IMAGE: ADSAmuster.png
 -> next_action_end_turn
 
-===military_5b_pass_possible===
-Pass # CLASS: w3-pink
-TODO: Implement Warrior of Middle Earth
-~ return_knot = -> mobile_army_adjacent_target_military
-+ [Done] -> next_action
-+ [Not Possible] -> event
+===warriors_play_faction_event_card===
+Play Faction Event card.  # CLASS: w3-pink
+-> next_action_end_turn
+
+===warriors_draw_faction_event_card===
+Draw a Faction Event card.  # CLASS: w3-pink
+-> next_action_end_turn
+
+===warriors_muster_faction_figure===
+Muster faction figures # CLASS: w3-pink
+-> next_action_end_turn
+
+===warriors_bring_faction_play===
+Bring faction into play # CLASS: w3-pink
+-> next_action_end_turn
 
 ===next_action_end_turn===
 + [Next Action] -> next_action

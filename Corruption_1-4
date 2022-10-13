@@ -2,7 +2,7 @@
 ~ corruption_strategy = true
 <b>Phase 1</b> # CLASS: w3-green
 Recover action dice # CLASS: w3-orange
-+ [Done] -> phase_1_corruption_2
+-> phase_1_corruption_2
 
 ===phase_1_corruption_2===
 Draw Event <> 
@@ -15,8 +15,12 @@ cards # CLASS: w3-orange
 ===phase_1_corruption_3===
 More than 6 Event cards in hand? # CLASS: w3-yellow
 + [Yes] -> phase_1_corruption_discard
-+ [No] -> phase_2_corruption
-TODO: Implement Warriors of Middle Earth
++ [No]
+{ warriors_of_middle_earth:
+ -> wome_phase_1_corruption_faction_event 
+ - else:
+ -> phase_2_corruption
+}
 
 ===phase_1_corruption_discard===
 Holding more than 1 strategy card? # CLASS: w3-blue
@@ -30,7 +34,12 @@ Event card discard priority: # CLASS: w3-orange
 3. Strategy card # CLASS: w3-orange
 4. Character card # CLASS: w3-orange
 5. Descending order of priority # CLASS: w3-orange
-+ [Done] -> phase_2_corruption
++ [Done]
+{ warriors_of_middle_earth:
+ -> wome_phase_1_corruption_faction_event 
+ - else:
+ -> phase_2_corruption
+}
 
 ===phase_1_corruption_discard_character===
 Event card discard priority: # CLASS: w3-orange
@@ -39,6 +48,20 @@ Event card discard priority: # CLASS: w3-orange
 3. Character card # CLASS: w3-orange
 4. Strategy card # CLASS: w3-orange
 5. Descending order of priority # CLASS: w3-orange
++ [Done] -> phase_2_corruption
+
+===wome_phase_1_corruption_faction_event===
+More than 4 Faction Event cards in hand? # CLASS: w3-yellow
++ [Yes] -> wome_corruption_discard_priority
++ [No] -> phase_2_corruption
+
+===wome_corruption_discard_priority===
+Priority of Faction Event cards to discard: # CLASS: w3-orange
+1. No faction picture # CLASS: w3-orange
+2. Faction not in play # CLASS: w3-orange
+3. Not a preferred card # CLASS: w3-orange
+4. Doesn't use the term "Fellowship revealed" # CLASS: w3-orange
+5. Doesn't place a tile # CLASS: w3-orange
 + [Done] -> phase_2_corruption
 
 ===phase_2_corruption===

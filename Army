@@ -1,6 +1,6 @@
 ===army===
 <b>Army</b>  # CLASS: w3-green
-Threat exists? # CLASS: w3-yellow
+Threat_tooltip exists? # CLASS: w3-yellow
 + [Yes] -> army_threat
 + [No] -> army_exposed_target
 
@@ -41,7 +41,7 @@ Mobile_tooltip army's closest target_tooltip takes it towards cause of threat_to
 + [No] -> army_exposed_target
 
 ===army_exposed_target===
-<i>Exposed target</i> exists? # CLASS: w3-yellow
+<i>Exposed_tooltip target_tooltip</i> exists? # CLASS: w3-yellow
 + [Yes] -> move_nearest_army_towards_exposed
 + [No] -> army_adjacent_target
 
@@ -52,7 +52,7 @@ Target_tooltip not under siege? # CLASS: w3-blue
 + [No] -> army_fellowship_region
 
 ===army_target_not_under_seige_priority===
-<bAttack target priority:</b> # CLASS: w3-purple
+<bAttack target_tooltip priority:</b> # CLASS: w3-purple
 1. Target_tooltip is nation at war # CLASS: w3-purple
 2. Attack would not move nation to war # CLASS: w3-purple
 3. Target_tooltip in active nation # CLASS: w3-purple
@@ -75,7 +75,7 @@ Army can move onto an empty settlement of a nation at war? # CLASS: w3-yellow
 + [No] -> army_two_armies
 
 ===army_increase_distance===
-Increases distance to target? # CLASS: w3-blue
+Increases distance to target_tooltip? # CLASS: w3-blue
 + [Yes] -> move_unit_into_region
 + [No] -> move_army_into_region
 
@@ -104,10 +104,10 @@ Mobile_tooltip army can move or attack towards closest target_tooltip? # CLASS: 
 + [No] -> army_on_board
 
 ===army_move_attach_priority===
-<b>Mobile army mover or attack priority:</b> # CLASS: w3-purple
+<b>Mobile army move or attack priority:</b> # CLASS: w3-purple
 1. Shadow army adjacent to target_tooltip # CLASS: w3-purple
 2. Target_tooltip nation at war # CLASS: w3-purple
-3. Doesn't make passive nation active # CLASS: w3-purple
+3. Doesn't make passive_tooltip nation active # CLASS: w3-purple
 4. Doesn't change nation to at war # CLASS: w3-purple
 5. By order of target_tooltip priority # CLASS: w3-purple
 6. Highest value_tooltip Shadow army # CLASS: w3-purple
@@ -124,7 +124,7 @@ Have an army on the board? # CLASS: w3-yellow
 <b>Move army priority:</b> # CLASS: w3-purple
 1. Doesn't change nation to at war # CLASS: w3-purple
 2. Creates the highest army value_tooltip possible # CLASS: w3-purple
-3. Closest target has passive_tooltip army adjacent # CLASS: w3-purple
+3. Closest target_tooltip has passive_tooltip army adjacent # CLASS: w3-purple
 4. Movement ends adjacent to another Shadow army # CLASS: w3-purple
 5. Decrease distance to closest target_tooltip # CLASS: w3-purple
 6. Highest value_tooltip Shadow army # CLASS: w3-purple

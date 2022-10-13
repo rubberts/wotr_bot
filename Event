@@ -1,5 +1,5 @@
 ===event===
-<b>Event</b>  # CLASS: w3-green
+<b>Event</b> # CLASS: w3-green
 Holding a card with a playable <> # CLASS: w3-yellow
 { 
 - corruption_strategy:
@@ -22,7 +22,16 @@ Holding less than 4 Event cards<>
 }
 ? # CLASS: w3-blue
 + [Yes] -> draw_preferred_event_card
- TODO: implement Warriors of Middle Earth
+ + [No]
+{ warriors_of_middle_earth:
+ -> wome_holding_less_3
+ - else:
+ -> event_holding_playable_event
+}
+
+===wome_holding_less_3===
+Holding less than 3 Faction Event cards? # CLASS: w3-blue
++ [Yes] -> warriors_draw_faction_event_card
 + [No] -> event_holding_playable_event
 
 ===event_holding_playable_event===

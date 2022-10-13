@@ -139,13 +139,19 @@ Free People remain? # CLASS: w3-yellow
 + [No] -> ending
 
 ===field_battle===
-Field battle or using military strategy or Fellowship on Mordor track? # CLASS: w3-blue
-TODO: Automate the military strategy condition
+{ corruption_strategy:
+ -> field_battle_corruption 
+ - else:
+ -> shadow_army_aggressive
+}
+
+===field_battle_corruption==
+Field battle or Fellowship on Mordor track? # CLASS: w3-blue
 + [Yes] -> shadow_army_aggressive
 + [No] -> ending
 
 ===shadow_army_aggressive===
-Shadow army is aggressive if battle continues or is defending or Fellowship on Mordor track? # CLASS: w3-blue
+Shadow army is aggressive_tooltip if battle continues or is defending or Fellowship on Mordor track? # CLASS: w3-blue
 + [Yes] -> battle
 + [No] -> ending
 
