@@ -4,6 +4,10 @@ This symbol indicates a ring should be used where the condition is met and the r
 -> shadow_under_threat_military
 
 ===shadow_under_threat_military===
++ [Defend Free Peoples Attack] -> battle
++ [Use Action Die] -> shadow_under_threat_military_next
+
+===shadow_under_threat_military_next===
 <b>Shadow under threat_tooltip or Free People exposed_tooltip</b>? # CLASS: w3-yellow  # IMAGE: elvenring3.png
 + [Yes] -> military_mobile_army_adjacent
 + [No] -> military_witch_king_in_play

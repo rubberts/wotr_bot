@@ -1,9 +1,13 @@
 ===phase_5_corruption===
 <b>Phase 5</b> # CLASS: w3-green
 This symbol indicates a ring should be used where the condition is met and the required die in unavailable # CLASS: w3-green # IMAGE: elvenring3.png
--> shadow_under_threat_corruption
+-> shadow_under_threat_corruption_next
 
 ===shadow_under_threat_corruption===
++ [Defend Free Peoples Attack] -> battle
++ [Use Action Die] -> shadow_under_threat_corruption_next
+
+===shadow_under_threat_corruption_next===
 <b>Shadow under threat_tooltip or Free People exposed_tooltip</b>? # CLASS: w3-yellow # IMAGE: elvenring3.png
 + [Yes] -> mobile_army_adjacent
 + [No] -> character_cards_over_zero

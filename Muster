@@ -69,7 +69,7 @@ Holding a playable muster card? # CLASS: w3-yellow
 ===muster_choice_location==
 Card allows choice of muster location? # CLASS: w3-blue
 + [Yes] -> muster_exposed_target
-+ [No] Muster -> DONE
++ [No] -> muster_action
 
 ===muster_exposed_target===
 Able to create an exposed_tooltip target? # CLASS: w3-blue
