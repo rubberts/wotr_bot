@@ -21,9 +21,9 @@ VAR corruption_strategy = false
 <b>War of the Ring non-cheating bot for solo players</b>
 Plays as the Shadow in War of the Ring 2nd edition and supports the Warriors of Middle Earth expansion.
 
-<i>Based on Queller Bot By Quitch Version 3.0.1 - 2020-07-19</i> 
+<i>Based on Queller Bot By Quitch Version 3.2 – 2023-01-26</i> 
 {corruption_strategy} # CLASS: w3-black
-//-> corruption_muster_minion
+//-> muster_recruit_minion
 { RANDOM(1, 2):
 - 1: # IMAGE: corruption_strategy.jpg
     -> phase_1_corruption 
@@ -37,11 +37,10 @@ Plays as the Shadow in War of the Ring 2nd edition and supports the Warriors of 
 
 ===attack===
 <b>Attack</b> # CLASS: w3-pink # IMAGE: attack.jpg
--> next_action_end_turn
+-> army_is_sortie
 
 ===move===
 <b>Move</b> # CLASS: w3-pink # IMAGE: move.png
-+ [Next Action] -> next_action
 -> next_action_end_turn
 
 ===move_nearest_army_towards_exposed===

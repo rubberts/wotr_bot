@@ -10,7 +10,7 @@ Shadow army defending in stronghold region and not under siege? # CLASS: w3-yell
 + [No] -> shadow_army_attacking
 
 ===army_value_lower===
-Army value lower than or equal to enemy and army numbers less than 8? # CLASS: w3-blue
+Army value_tooltip lower than or equal to enemy and less than 8 Army units? # CLASS: w3-blue
 + [Yes] -> retreat_into_stronghold
 + [No] -> shadow_army_attacking
 

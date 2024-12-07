@@ -12,6 +12,9 @@ Draw Event <>
 cards # CLASS: w3-orange
 + [Done] -> phase_1_corruption_3
 
+===phase_1_from_military_strategy===
+-> phase_1_corruption_3
+
 ===phase_1_corruption_3===
 More than 6 Event cards in hand? # CLASS: w3-yellow
 + [Yes] -> phase_1_corruption_discard
@@ -74,15 +77,15 @@ Corruption points lower than Shadow Victory points? # CLASS: w3-yellow
 ===phase_3_corruption===
 <b>Phase 3</b> # CLASS: w3-green
 Select first Fellowship state, starting from top: # CLASS: w3-yellow
-+ Fellowship at starting location and progress is 0 # CLASS: w3-yellow
++ Fellowship at starting location and Progress counter is 0 # CLASS: w3-yellow
  -> phase_3_corruption_random
 + Fellowship on the Mordor track # CLASS: w3-yellow
  -> phase_3_corruption_max
 + Mobile_tooltip army adjacent to target_tooltip which would win the game or Shadow only has 7 dice # CLASS: w3-yellow
  -> phase_3_corruption_1
-+ Fellowship progress is greater than 4 # CLASS: w3-yellow
++ Fellowship Progress counter is greater than 4 # CLASS: w3-yellow
  -> phase_3_corruption_2
-+ Shortest Fellowship route leads via a Shadow stronghold and they are within two progress of it or have passed it # CLASS: w3-yellow
++ Shortest Fellowship route leads via a Shadow stronghold and they are within 2 Progress of it or have passed it # CLASS: w3-yellow
  -> phase_3_corruption_2
 + None of the above # CLASS: w3-yellow
  -> phase_3_corruption_1

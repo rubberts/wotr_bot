@@ -1,9 +1,13 @@
 ===phase_5_corruption===
 <b>Phase 5</b> # CLASS: w3-green
 This symbol indicates a ring should be used where the condition is met and the required die in unavailable # CLASS: w3-green # IMAGE: elvenring3.png
--> shadow_under_threat_corruption
+-> shadow_under_threat_corruption_next
 
 ===shadow_under_threat_corruption===
++ [Defend Free Peoples Attack] -> battle
++ [Use Action Die] -> shadow_under_threat_corruption_next
+
+===shadow_under_threat_corruption_next===
 <b>Shadow under threat_tooltip or Free People exposed_tooltip</b>? # CLASS: w3-yellow # IMAGE: elvenring3.png
 + [Yes] -> mobile_army_adjacent
 + [No] -> character_cards_over_zero
@@ -26,11 +30,6 @@ Move can increase troop numbers in the Stronghold under threat_tooltip? # CLASS:
 ===mobile_army_route===
 Mobile_tooltip army's route to closest target_tooltip takes it towards threat_tooltip? # CLASS: w3-blue
 + [Yes] -> corruption_5a_move_character_die
-+ [No] -> move_towards_exposed
-
-===move_towards_exposed===
-Can move towards exposed_tooltip? # CLASS: w3-blue
-+ [Yes] -> corruption_5a_move_character_die
 + [No] -> stronghold_under_threat
 
 ===stronghold_under_threat===
@@ -41,6 +40,12 @@ Stronghold under threat_tooltip is valid for muster? # CLASS: w3-blue
 
 ===threat_sieging===
 Threat_tooltip is sieging a Shadow stronghold which can use more leadership? # CLASS: w3-blue
+~ return_knot = -> move_towards_exposed
++ [Yes] -> character_3_muster_witch_king
++ [No] -> move_towards_exposed
+
+===move_towards_exposed===
+Can move towards exposed_tooltip? # CLASS: w3-blue
 ~ return_knot = -> character_cards_over_zero
-+ [Yes] -> character_2
++ [Yes] -> army
 + [No] -> character_cards_over_zero

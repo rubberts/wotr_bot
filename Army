@@ -52,7 +52,7 @@ Target_tooltip not under siege? # CLASS: w3-blue
 + [No] -> army_fellowship_region
 
 ===army_target_not_under_seige_priority===
-<bAttack target_tooltip priority:</b> # CLASS: w3-purple
+<b>Attack target_tooltip priority:</b> # CLASS: w3-purple
 1. Target_tooltip is nation at war # CLASS: w3-purple
 2. Attack would not move nation to war # CLASS: w3-purple
 3. Target_tooltip in active nation # CLASS: w3-purple
@@ -65,7 +65,7 @@ Army can move into Fellowship region without increasing distance to target_toolt
 + [No] -> army_empty_settlement
 
 ===army_dice_hunt_pool===
-Dice in hunt pool and Fellowship progress puts it outside Mordor and no army in region? # CLASS: w3-blue
+Dice in hunt pool and Fellowship Progress puts it outside Mordor and no army in region? # CLASS: w3-blue
 + [Yes] -> move_army_into_region
 + [No] -> army_empty_settlement
 
@@ -113,7 +113,8 @@ Mobile_tooltip army can move or attack towards closest target_tooltip? # CLASS: 
 6. Highest value_tooltip Shadow army # CLASS: w3-purple
 7. Doesn't block another mobile_tooltip army's shortest route to their closest target_tooltip # CLASS: w3-purple
 8. Region contains Fellowship # CLASS: w3-purple
-+ [Done] -> move_attack
++ [Move] -> move
++ [Attack] -> attack
 
 ===army_on_board===
 Have an army on the board? # CLASS: w3-yellow

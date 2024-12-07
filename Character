@@ -47,8 +47,8 @@ Die has been used? # CLASS: w3-blue
 (use character die) # IMAGE: ADSAcharacter.png
 -> event
 
-===muster_witch_king===
-<b>Muster Witch King</b>  # CLASS: w3-green
+===character_3_muster_witch_king===
+<b>Character 3 / Muster Witch King</b>  # CLASS: w3-green
 -> witch_king_placement_priority
 
 ===witch_king_placement_priority===
@@ -71,7 +71,7 @@ Move/Muster # CLASS: w3-orange
 ===mustered_witch_king===
 Mustered Witch King? # CLASS: w3-blue
 + [Yes] -> end_action
-+ [No] -> character_nazgul
++ [No] -> nazgul_placement_priority
 
 ===nazgul_placement_priority===
 <b>Nazgul placement priority:</b> # CLASS: w3-purple

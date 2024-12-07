@@ -4,7 +4,11 @@ This symbol indicates a ring should be used where the condition is met and the r
 -> shadow_under_threat_military
 
 ===shadow_under_threat_military===
-<b>Shadow under threat_tooltip or Free People exposed_tooltip</b>? # CLASS: w3-yellow  # IMAGE: elvenring3.png
++ [Defend Free Peoples Attack] -> battle
++ [Use Action Die] -> shadow_under_threat_military_next
+
+===shadow_under_threat_military_next===
+<b>Shadow under threat_tooltip or Free People exposed_tooltip</b>? # CLASS: w3-yellow # IMAGE: elvenring3.png
 + [Yes] -> military_mobile_army_adjacent
 + [No] -> military_witch_king_in_play
 
@@ -28,11 +32,6 @@ Mobile_tooltip army's route to closest target_tooltip takes it towards threat_to
 + [Yes] -> military_5a_move_character_die
 + [No] -> military_move_towards_exposed
 
-===military_move_towards_exposed===
-Can move towards exposed_tooltip? # CLASS: w3-blue
-+ [Yes] -> military_5a_move_character_die
-+ [No] -> military_stronghold_under_threat
-
 ===military_stronghold_under_threat===
 Stronghold under threat_tooltip is valid for muster? # CLASS: w3-blue
 ~ return_knot = -> military_threat_sieging
@@ -41,6 +40,12 @@ Stronghold under threat_tooltip is valid for muster? # CLASS: w3-blue
 
 ===military_threat_sieging===
 Threat_tooltip is sieging a Shadow stronghold which can use more leadership? # CLASS: w3-blue
+~ return_knot = -> military_move_towards_exposed
++ [Yes] -> character_3_muster_witch_king
++ [No] -> military_move_towards_exposed
+
+===military_move_towards_exposed===
+Can move towards exposed_tooltip? # CLASS: w3-blue
 ~ return_knot = -> military_witch_king_in_play
-+ [Yes] -> character_2
++ [Yes] -> army
 + [No] -> military_witch_king_in_play
