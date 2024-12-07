@@ -77,7 +77,7 @@ Able to create an exposed_tooltip target? # CLASS: w3-blue
 + [No] -> fellowship_adjacent
 
 ===fellowship_adjacent===
-Fellowship adjacent to Shadow settlement and progress puts it outside Mordor and no army is in or adjacent to its region? # CLASS: w3-blue
+Fellowship adjacent to Shadow settlement and Fellowship Progress puts it outside Mordor and no army is in or adjacent to its region? # CLASS: w3-blue
 + [Yes] -> muster_regular_nazgul
 + [No] -> muster_action
 

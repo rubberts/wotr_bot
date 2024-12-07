@@ -21,7 +21,7 @@ VAR corruption_strategy = false
 <b>War of the Ring non-cheating bot for solo players</b>
 Plays as the Shadow in War of the Ring 2nd edition and supports the Warriors of Middle Earth expansion.
 
-<i>Based on Queller Bot By Quitch Version 3.0.1 - 2020-07-19</i> 
+<i>Based on Queller Bot By Quitch Version 3.2 – 2023-01-26</i> 
 {corruption_strategy} # CLASS: w3-black
 //-> muster_recruit_minion
 { RANDOM(1, 2):

@@ -10,7 +10,12 @@ Draw Event <>
     and Faction Event <>
 }
 cards # CLASS: w3-orange
-+ [Done] -> phase_1_military_3
++ [Done] -> phase_1_military_4
+
+===phase_1_military_4===
+Shadow victory points lower than Corruption points? # CLASS: w3-yellow
++ [Yes] -> phase_1_from_military_strategy # IMAGE: corruption_strategy.jpg
++ [No] -> phase_1_military_3
 
 ===phase_1_military_3===
 More than 6 Event cards in hand? # CLASS: w3-yellow
@@ -19,7 +24,7 @@ More than 6 Event cards in hand? # CLASS: w3-yellow
 { warriors_of_middle_earth:
  -> wome_phase_1_military_faction_event 
  - else:
- -> phase_2_military
+ -> phase_3_military
 }
 
 ===phase_1_military_discard===
@@ -33,13 +38,13 @@ Event card discard priority: # CLASS: w3-orange
 { warriors_of_middle_earth:
  -> wome_phase_1_military_faction_event
  - else:
- -> phase_2_military
+ -> phase_3_military
 }
 
 ===wome_phase_1_military_faction_event===
 More than 4 Faction Event cards in hand? # CLASS: w3-yellow
 + [Yes] -> wome_military_discard_priority
-+ [No] -> phase_2_military
++ [No] -> phase_3_military
 
 ===wome_military_discard_priority===
 priority of Faction Event cards to discard: # CLASS: w3-orange
@@ -48,22 +53,16 @@ priority of Faction Event cards to discard: # CLASS: w3-orange
 3. Not a preferred card # CLASS: w3-orange
 4. Doesn't use the term "Fellowship revealed" # CLASS: w3-orange
 5. Doesn't place a tile # CLASS: w3-orange
-+ [Done] -> phase_2_military
-
-===phase_2_military===
-<b>Phase 2</b> # CLASS: w3-green
-Shadow victory points lower than Corruption points? # CLASS: w3-yellow
-+ [Yes] -> phase_3_corruption # IMAGE: corruption_strategy.jpg
-+ [No] -> phase_3_military
++ [Done] -> phase_3_military
 
 ===phase_3_military===
 <b>Phase 3</b> # CLASS: w3-green
 Select first Fellowship state, starting from top: # CLASS: w3-yellow
 + Fellowship on the Mordor track # CLASS: w3-yellow
  -> phase_3_military_max
-+ Fellowship progress is greater than 5 # CLASS: w3-yellow
++ Fellowship Progress counter is greater than 5 # CLASS: w3-yellow
  -> phase_3_military_2
-+ Fellowship in starting location and progress is 0 # CLASS: w3-yellow
++ Fellowship in starting location and Progress is 0 # CLASS: w3-yellow
  -> phase_3_military_0
 + None of the above # CLASS: w3-yellow
  -> phase_3_military_1

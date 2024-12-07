@@ -65,7 +65,7 @@ Army can move into Fellowship region without increasing distance to target_toolt
 + [No] -> army_empty_settlement
 
 ===army_dice_hunt_pool===
-Dice in hunt pool and Fellowship progress puts it outside Mordor and no army in region? # CLASS: w3-blue
+Dice in hunt pool and Fellowship Progress puts it outside Mordor and no army in region? # CLASS: w3-blue
 + [Yes] -> move_army_into_region
 + [No] -> army_empty_settlement
 
